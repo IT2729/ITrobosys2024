@@ -1,2 +1,2 @@
-# ITrobosys2024
+# robosys2024
 ロボットシステム学用
