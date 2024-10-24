@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#SPDH-FileCopyrightText: 2024   Itsuki Terasawa
 import sys
 
 ans = 0
