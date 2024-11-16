@@ -10,7 +10,10 @@ while True:
     except ValueError as e: #数字以外の入力でループ
         print("入力に失敗しました。もう一度数字で入力してください: ") 
     else:
-        break
+        if DOF > 100:
+            print("自由度が多すぎます。100以下の数字を入力してください")
+        else:
+            break
 
 #間接の位置ベクトルと回転軸ベクトルを設定
 for i in range(1, DOF + 1):
