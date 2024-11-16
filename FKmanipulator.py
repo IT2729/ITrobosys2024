@@ -58,7 +58,6 @@ for i in range(1, DOF + 1):
             exec(f"print(s" + str(i) + f")")
             exec(f"sin_theta" + str(i) + f", cos_theta" + str(i) + f" = sy.symbols('sin_theta" + str(i) + f", cos_theta" + str(i) + f"')")
             exec(f"R" + str(i) + f" = np.array([[1, 0, 0], [0, cos_theta" + str(i) + f", - sin_theta" + str(i) + f"], [0, sin_theta" + str(i) + f", cos_theta" + str(i) + f"]])")
-            exec(f"print(R" + str(i) + f")")
             break
 
         elif input1 == str("y"):
@@ -66,17 +65,16 @@ for i in range(1, DOF + 1):
             exec(f"print(s" + str(i) + f")")
             exec(f"sin_theta" + str(i) + f", cos_theta" + str(i) + f" = sy.symbols('sin_theta" + str(i) + f", cos_theta" + str(i) + f"')")
             exec(f"R" + str(i) + f" = np.array([[cos_theta" + str(i) + f", 0, sin_theta" + str(i) + f"], [0, 1, 0], [-sin_theta" + str(i) + f", 0, cos_theta" + str(i) + f"]])")
-            exec(f"print(R" + str(i) + f")")
             break
-
 
         elif input1 == str("z"):
             exec(f"s" + str(i) + f"= np.array([[0], [0], [1]])")
             exec(f"print(s" + str(i) + f")")
             exec(f"sin_theta" + str(i) + f", cos_theta" + str(i) + f" = sy.symbols('sin_theta" + str(i) + f", cos_theta" + str(i) + f"')")
             exec(f"R" + str(i) + f" = np.array([[cos_theta" + str(i) + f", - sin_theta" + str(i) + f", 0], [sin_theta" + str(i) + f", cos_theta" + str(i) + f", 0], [0, 0 ,1]])")
-            exec(f"print(R" + str(i) + f")")
             break
+        else:
+            print("入力に失敗しました。もう一度x,y,zで入力してください: ")
 
 
 
