@@ -80,4 +80,39 @@ for i in range(1, DOF + 1):
             print("入力に失敗しました。もう一度x,y,zで入力してください: ")
 
 
+#位置ベクトルのx成分を設定
+while True:
+    try:
+        exec(f"input1 =  input('{str(DOF)}Prのx成分を入力してください: ')")
+        vector_r_x = float(input1)
+    except ValueError as e: #数字以外の入力でループ
+        print("入力に失敗しました。もう一度数字で入力してください: ")
+    else:
+        exec(f"pr_x = vector_r_x")
+        break
+    
+#位置ベクトルのy成分を設定
+while True:
+    try:
+        exec(f"input1 = input('{str(DOF)}Prのy成分を入力してください: ')")
+        vector_r_y = float(input1)
+    except ValueError as e: #数字以外の入力でループ
+        print("入力に失敗しました。もう一度数字で入力してください: ")
+    else:
+        exec(f"pr_y = vector_r_y")
+        break
+
+#位置ベクトルのz成分を設定
+while True:
+    try:
+        exec(f"input1 =  input('{str(DOF)}Prのz成分を入力してください: ')")
+        vector_r_z = float(input1)
+    except ValueError as e: #数字以外の入力でループ
+        print("入力に失敗しました。もう一度数字で入力してください: ")
+    else:
+        exec(f"pr_z = vector_r_z")
+        break
+    
+exec(f"pr = np.array([[pr_x], [pr_y], [pr_z]])") #x,y,z成分から位置ベクトルを生成
+exec(f"print(pr)") #位置ベクトルを表示
 
