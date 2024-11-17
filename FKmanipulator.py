@@ -15,6 +15,8 @@ while True:
     else:
         if DOF > 100:
             print("自由度が多すぎます。100以下の数字を入力してください。")
+        elif DOF < 0:
+            print("入力に失敗しました。0以上の数字を入力してください。")
         else:
             break
 
