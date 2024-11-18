@@ -199,7 +199,24 @@ for l in range(1, DOF + 1):
     exec(f"x = np.append(x, ol{str(l)}[0])")
     exec(f"y = np.append(y, ol{str(l)}[1])")
     exec(f"z = np.append(z, ol{str(l)}[2])")
-    
+
+for q in range( 1, DOF + 1):
+    exec(f"a = a.subs(theta{str(q)}, rad{str(q)})")
+    exec(f"b = b.subs(theta{str(q)}, rad{str(q)})")
+    exec(f"c = c.subs(theta{str(q)}, rad{str(q)})")
+
+exec(f"a_position = np.append(ol{str(DOF)}, a + ol{str(DOF)}, axis=1)")
+exec(f"b_position = np.append(ol{str(DOF)}, b + ol{str(DOF)}, axis=1)")
+exec(f"c_position = np.append(ol{str(DOF)}, c + ol{str(DOF)}, axis=1)")
+a_x = a_position[0]
+a_y = a_position[1]
+a_z = a_position[2]
+b_x = b_position[0]
+b_y = b_position[1]
+b_z = b_position[2]
+c_x = c_position[0]
+c_y = c_position[1]
+c_z = c_position[2]
 
 print(x)
 print(y)
@@ -230,8 +247,9 @@ elif abs(z_Min) > abs(z_Max):
     ax.set_zlim(z_Max - 2 * Range, z_Max)
 else:
     ax.set_zlim(z_Min, z_Min + 2 * Range)
-ax.plot(x, y, z, marker="o", markersize=3, color="blue")
-
-
+ax.plot(x, y, z, marker="o", markersize=3, color="#b8860b")
+ax.plot(a_x, a_y, a_z, color="red")
+ax.plot(b_x, b_y, b_z, color="green")
+ax.plot(c_x, c_y, c_z, color="blue")
 
 plt.show()
