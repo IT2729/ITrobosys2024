@@ -164,6 +164,7 @@ y = np.zeros((1, 1))
 z = np.zeros((1, 1))
 
 l0_np = sy.matrix2numpy(l0)
+ol0 = l0_np
 x = np.append(x, l0[0])
 y = np.append(y, l0[1])
 z = np.append(z, l0[2])
