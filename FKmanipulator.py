@@ -242,11 +242,11 @@ ax.set_xlim(- Range, Range)
 z_Max = max(z)
 z_Min = min(z)
 if abs(z_Max) > abs(z_Min):
-    ax.set_zlim(z_Min, z_Min + 2 * Range)
+    ax.set_zlim(z_Min - 1, z_Min - 1 + 2 * Range)
 elif abs(z_Min) > abs(z_Max):
-    ax.set_zlim(z_Max - 2 * Range, z_Max)
+    ax.set_zlim(z_Max + 1 - 2 * Range, z_Max + 1)
 else:
-    ax.set_zlim(z_Min, z_Min + 2 * Range)
+    ax.set_zlim(z_Min - 1, z_Min  - 1 + 2 * Range)
 ax.plot(x, y, z, marker="o", markersize=3, color="#b8860b")
 ax.plot(a_x, a_y, a_z, color="red")
 ax.plot(b_x, b_y, b_z, color="green")
