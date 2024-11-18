@@ -212,7 +212,7 @@ elif abs(z_Min) > abs(z_Max):
     ax.set_zlim(z_Max - 2 * Range, z_Max)
 else:
     ax.set_zlim(z_Min, z_Min + 2 * Range)
-ax.plot(x, y, z, color="blue")
+ax.plot(x, y, z, marker="o", markersize=3, color="blue")
 
 
 
