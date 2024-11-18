@@ -7,6 +7,10 @@ import math
 
 r0 = np.eye(3)
 oPr = sy.zeros(3, 1)
+a = sy.Matrix([[1], [0], [0]])
+b = sy.Matrix([[0], [1], [0]])
+c = sy.Matrix([[0], [0], [1]])
+
 
 #自由度を設定
 while True:
@@ -137,9 +141,23 @@ for j in range(0, DOF + 1):
     exec(f"print(l{str(j)})")
     exec(f"oPr += l{str(j)}")
 
+p = DOF
+while p >= 0:
+    exec(f"a = r{str(p)} * a")
+    exec(f"b = r{str(p)} * b")
+    exec(f"c = r{str(p)} * c")
+    p -= 1
+
 np_oPr = sy.matrix2numpy(oPr)
-print("順運動学解は:")
-print(np_oPr)
+print("順運動学解は: \n {}" .format(np_oPr))
+
+
+np_a = sy.matrix2numpy(a)
+np_b = sy.matrix2numpy(b)
+np_c = sy.matrix2numpy(c)
+ab = np.append(a, b, axis=1)
+abc = np.append(ab, c, axis=1)
+print("有顔ベクトルは: \n {}" .format(abc))
 
 x = np.zeros((1, 1))
 y = np.zeros((1, 1))
