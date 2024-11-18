@@ -2,6 +2,8 @@
 import numpy as np
 import sympy as sy
 import matplotlib.pyplot as plt
+import math
+
 
 r0 = np.eye(3)
 oPr = sy.zeros(3, 1)
@@ -185,10 +187,33 @@ print(x)
 print(y)
 print(z)
 
+Max_mat = [max(x), max(y), max(z)]
+Max_num = max(Max_mat)
+Min_mat = [min(x), min(y), min(z)]
+Min_num = min(Min_mat)
+Max = np.float16(round(Max_num + 1 + abs(Max_num) / 10.0, 1))
+Min = np.float16(round(Min_num - 1 - abs(Min_num) / 10.0, 1))
+if abs(Max) > abs(Min):
+    Range = abs(Max)
+elif abs(Min) > abs(Max):
+    Range = abs(Min)
+else:
+    Range = abs(Max)
+
 fig = plt.figure()
-
-
 ax = fig.add_subplot(projection="3d")
+ax.set_ylim(- Range, Range)
+ax.set_xlim(- Range, Range)
+z_Max = max(z)
+z_Min = min(z)
+if abs(z_Max) > abs(z_Min):
+    ax.set_zlim(z_Min, z_Min + 2 * Range)
+elif abs(z_Min) > abs(z_Max):
+    ax.set_zlim(z_Max - 2 * Range, z_Max)
+else:
+    ax.set_zlim(z_Min, z_Min + 2 * Range)
 ax.plot(x, y, z, color="blue")
+
+
 
 plt.show()
