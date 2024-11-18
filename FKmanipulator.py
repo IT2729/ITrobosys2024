@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 import numpy as np
-import sympy as sy
+import sympy as sp
 
 r0 = np.eye(3)
-oPr = sy.zeros(3, 1)
+oPr = sp.zeros(3, 1)
 
 #自由度を設定
 while True:
@@ -55,7 +55,7 @@ for i in range(1, DOF + 1):
             exec(f"p{str(i)}_z = vector_r_z")
             break
     
-    exec(f"p{str(i)}= sy.Matrix([[p{str(i)}_x], [p{str(i)}_y], [p{str(i)}_z]])") #x,y,z成分から位置ベクトルを生成
+    exec(f"p{str(i)}= sp.Matrix([[p{str(i)}_x], [p{str(i)}_y], [p{str(i)}_z]])") #x,y,z成分から位置ベクトルを生成
     exec(f"print(p{str(i)})") #位置ベクトルを表示
 
     #回転軸ベクトルを設定
@@ -64,22 +64,22 @@ for i in range(1, DOF + 1):
         if input1 == str("x"):
             exec(f"s{str(i)}= np.array([[1], [0], [0]])")
             exec(f"print(s{str(i)})")
-            exec(f"sin_theta{str(i)}, cos_theta{str(i)} = sy.symbols('sin_theta{str(i)}, cos_theta{str(i)}')")
-            exec(f"r{str(i)} = sy.Matrix([[1, 0, 0], [0, cos_theta{str(i)}, - sin_theta{str(i)}], [0, sin_theta{str(i)}, cos_theta{str(i)}]])")
+            exec(f"theta{str(i)} = sp.symbols('theta{str(i)}')")
+            exec(f"r{str(i)} = sp.Matrix([[1, 0, 0], [0, sp.cos(theta{str(i)}), - sp.sin(theta{str(i)})], [0, sp.sin(theta{str(i)}), sp.cos(theta{str(i)})]])")
             break
 
         elif input1 == str("y"):
             exec(f"s{str(i)}= np.array([[0], [1], [0]])")
             exec(f"print(s{str(i)})")
-            exec(f"sin_theta{str(i)}, cos_theta{str(i)} = sy.symbols('sin_theta{str(i)}, cos_theta{str(i)}')")
-            exec(f"r{str(i)} = sy.Matrix([[cos_theta{str(i)}, 0, sin_theta{str(i)}], [0, 1, 0], [-sin_theta{str(i)}, 0, cos_theta{str(i)}]])")
+            exec(f"theta{str(i)} = sp.symbols('theta{str(i)}')")
+            exec(f"r{str(i)} = sp.Matrix([[sp.cos(theta{str(i)}), 0, sp.sin(theta{str(i)})], [0, 1, 0], [- sp.sin(theta{str(i)}), 0, sp.cos(theta{str(i)})]])")
             break
 
         elif input1 == str("z"):
             exec(f"s{str(i)}= np.array([[0], [0], [1]])")
             exec(f"print(s{str(i)})")
-            exec(f"sin_theta{str(i)}, cos_theta{str(i)} = sy.symbols('sin_theta{str(i)}, cos_theta{str(i)}')")
-            exec(f"r{str(i)} = sy.Matrix([[cos_theta{str(i)}, - sin_theta{str(i)}, 0], [sin_theta{str(i)}, cos_theta{str(i)}, 0], [0, 0 ,1]])")
+            exec(f"theta{str(i)} = sp.symbols('theta{str(i)}')")
+            exec(f"r{str(i)} = sp.Matrix([[sp.cos(theta{str(i)}), - sp.sin(theta{str(i)}), 0], [sp.sin(theta{str(i)}), sp.cos(theta{str(i)}), 0], [0, 0 ,1]])")
             break
         else:
             print("入力に失敗しました。もう一度x,y,zで入力してください。")
@@ -118,10 +118,11 @@ while True:
         exec(f"pr_z = vector_r_z")
         break
     
-exec(f"p{str(DOF + 1)} = sy.Matrix([[pr_x], [pr_y], [pr_z]])") #x,y,z成分から位置ベクトルを生成
+exec(f"p{str(DOF + 1)} = sp.Matrix([[pr_x], [pr_y], [pr_z]])") #x,y,z成分から位置ベクトルを生成
 exec(f"print(p{str(DOF + 1)})") #位置ベクトルを表示
 
 
+#順運動学解を求める
 for j in range(0, DOF + 1):
     k = j
     exec(f"A = p{str(j + 1)}")
@@ -129,7 +130,21 @@ for j in range(0, DOF + 1):
         exec(f"A = r{str(k)} * A")
         k -= 1
     exec(f"l{str(j)} = A")
-    exec(f"print(l{str(j)})")
     exec(f"oPr += l{str(j)}")
+
+print("順運動学解は:")
+print(oPr)
+
+#角度を設定
+for l in range(1, DOF + 1):
+    while True:
+        try:
+            exec(f"input1 = input('θ{str(l)}の角度をdegで入力してください: ')")
+            theta = float(input1)
+        except ValueError as e:
+            print("入力に失敗しました。もう一度数字で入力してください。")
+        else:
+            exec(f"oPr = oPr.subs(theta{str(l)}, input1)")
+            break
 
 print(oPr)
