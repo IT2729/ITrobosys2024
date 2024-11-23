@@ -39,8 +39,13 @@ for i in range(1, DOF + 1):
         except ValueError as e: #数字以外の入力でループ
             print("入力に失敗しました。もう一度数字を入力してください。")
         else:
-            exec(f"p{str(i)}_x = vector_r_x")
-            break
+            if vector_r_x > 100: #最大値を定義
+                print("数字が大きすぎます。100以下の数字を入力してください。")
+            elif vector_r_x < - 100: #最小値を定義
+                print("数字が小さすぎます。-100以上の数字を入力してください。")
+            else:
+                exec(f"p{str(i)}_x = vector_r_x")
+                break
     
     #位置ベクトルのy成分を設定
     while True:
@@ -50,8 +55,13 @@ for i in range(1, DOF + 1):
         except ValueError as e: #数字以外の入力でループ
             print("入力に失敗しました。もう一度数字を入力してください。")
         else:
-            exec(f"p{str(i)}_y = vector_r_y")
-            break
+            if vector_r_y > 100: #最大値を定義
+                print("数字が大きすぎます。100以下の数字を入力してください。")
+            elif vector_r_y < - 100: #最小値を定義
+                print("数字が小さすぎます。-100以上の数字を入力してください。")
+            else:
+                exec(f"p{str(i)}_y = vector_r_y")
+                break
 
     #位置ベクトルのz成分を設定
     while True:
@@ -61,8 +71,13 @@ for i in range(1, DOF + 1):
         except ValueError as e: #数字以外の入力でループ
             print("入力に失敗しました。もう一度数字を入力してください。")
         else:
-            exec(f"p{str(i)}_z = vector_r_z")
-            break
+            if vector_r_z > 100: #最大値を定義
+                print("数字が大きすぎます。100以下の数字を入力してください。")
+            elif vector_r_z < - 100: #最小値を定義
+                print("数字が小さすぎます。-100以上の数字を入力してください。")
+            else:
+                exec(f"p{str(i)}_z = vector_r_z")
+                break
     
     #x,y,z成分から位置ベクトルを作成
     exec(f"p{str(i)}= sy.Matrix(\
@@ -128,8 +143,13 @@ while True:
     except ValueError as e: #数字以外の入力でループ
         print("入力に失敗しました。もう一度数字を入力してください。")
     else:
-        exec(f"pr_x = vector_r_x")
-        break
+        if vector_r_x > 100: #最大値を定義
+            print("数字が大きすぎます。100以下の数字を入力してください。")
+        elif vector_r_x < - 100: #最小値を定義
+            print("数字が小さすぎます。-100以上の数字を入力してください。")
+        else:
+            exec(f"pr_x = vector_r_x")
+            break
     
 #位置ベクトルのy成分を設定
 while True:
@@ -139,8 +159,13 @@ while True:
     except ValueError as e: #数字以外の入力でループ
         print("入力に失敗しました。もう一度数字を入力してください。")
     else:
-        exec(f"pr_y = vector_r_y")
-        break
+        if vector_r_y > 100: #最大値を定義
+            print("数字が大きすぎます。100以下の数字を入力してください。")
+        elif vector_r_y < - 100: #最小値を定義
+            print("数字が小さすぎます。-100以上の数字を入力してください。")
+        else:
+            exec(f"pr_y = vector_r_y")
+            break
 
 #位置ベクトルのz成分を設定
 while True:
@@ -150,8 +175,13 @@ while True:
     except ValueError as e: #数字以外の入力でループ
         print("入力に失敗しました。もう一度数字を入力してください。")
     else:
-        exec(f"pr_z = vector_r_z")
-        break
+        if vector_r_z > 100: #最大値を定義
+            print("数字が大きすぎます。100以下の数字を入力してください。")
+        elif vector_r_z < - 100: #最小値を定義
+            print("数字が小さすぎます。-100以上の数字を入力してください。")
+        else:
+            exec(f"pr_z = vector_r_z")
+            break
 
 #x,y,z成分から位置ベクトルを作成
 exec(f"p{str(DOF + 1)} = sy.Matrix([[pr_x], [pr_y], [pr_z]])")
@@ -218,8 +248,13 @@ for l in range(1, DOF + 1):
         except ValueError as e: #数字以外の入力でループ
             print("入力に失敗しました。もう一度数字を入力してください。")
         else:
-            exec(f"rad{str(l)} = sy.pi / 180.0 * deg") #degからradに変換
-            break
+            if deg > 10000: #最大角度を定義
+                print("数字が大きすぎます。10000以下の数字を入力してください。")
+            elif deg < - 10000: #最小角度を定義
+                print("数字が小さすぎます。-10000以上の数字を入力してください。")
+            else:
+                exec(f"rad{str(l)} = sy.pi / 180.0 * deg") #degからradに変換
+                break
     
     #原点から間接の位置ベクトルに角度を代入し、x,y,zの末尾に追加
     m = l
