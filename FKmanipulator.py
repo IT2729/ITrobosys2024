@@ -16,7 +16,7 @@ c = sy.Matrix([[0], [0], [1]])
 #自由度を設定
 while True:
     try:
-        strDOF = input("自由度を入力してください: ")
+        strDOF = input("自由度を入力してください:")
         DOF = int(strDOF)
     except ValueError as e: #数字以外の入力でループ
         print("入力に失敗しました。もう一度整数を入力してください。") 
@@ -34,7 +34,7 @@ for i in range(1, DOF + 1):
     #位置ベクトルのx成分を設定
     while True:
         try:
-            exec(f"input1 =  input('{str(i - 1)}P{str(i)}のx成分を入力してください: ')")
+            exec(f"input1 = input('{str(i - 1)}P{str(i)}のx成分を入力してください:')")
             vector_r_x = float(input1)
         except ValueError as e: #数字以外の入力でループ
             print("入力に失敗しました。もう一度数字を入力してください。")
@@ -50,7 +50,7 @@ for i in range(1, DOF + 1):
     #位置ベクトルのy成分を設定
     while True:
         try:
-            exec(f"input1 = input('{str(i - 1)}P{str(i)}のy成分を入力してください: ')")
+            exec(f"input1 = input('{str(i - 1)}P{str(i)}のy成分を入力してください:')")
             vector_r_y = float(input1)
         except ValueError as e: #数字以外の入力でループ
             print("入力に失敗しました。もう一度数字を入力してください。")
@@ -66,7 +66,7 @@ for i in range(1, DOF + 1):
     #位置ベクトルのz成分を設定
     while True:
         try:
-            exec(f"input1 =  input('{str(i - 1)}P{str(i)}のz成分を入力してください: ')")
+            exec(f"input1 = input('{str(i - 1)}P{str(i)}のz成分を入力してください:')")
             vector_r_z = float(input1)
         except ValueError as e: #数字以外の入力でループ
             print("入力に失敗しました。もう一度数字を入力してください。")
@@ -90,7 +90,7 @@ for i in range(1, DOF + 1):
 
     #回転軸ベクトルを設定
     while True:
-        exec(f"input1 = input('θ{str(i)}回転軸ベクトルの向きをx,y,zで入力してください: ')")
+        exec(f"input1 = input('θ{str(i)}回転軸ベクトルの向きをx,y,zで入力してください:')")
         #x軸周りの回転の場合
         if input1 == str("x"):
             exec(f"s{str(i)}= np.array([[1], [0], [0]])")
@@ -138,7 +138,7 @@ for i in range(1, DOF + 1):
 #位置ベクトルのx成分を設定
 while True:
     try:
-        exec(f"input1 =  input('{str(DOF)}Prのx成分を入力してください: ')")
+        exec(f"input1 = input('{str(DOF)}Prのx成分を入力してください:')")
         vector_r_x = float(input1)
     except ValueError as e: #数字以外の入力でループ
         print("入力に失敗しました。もう一度数字を入力してください。")
@@ -154,7 +154,7 @@ while True:
 #位置ベクトルのy成分を設定
 while True:
     try:
-        exec(f"input1 = input('{str(DOF)}Prのy成分を入力してください: ')")
+        exec(f"input1 = input('{str(DOF)}Prのy成分を入力してください:')")
         vector_r_y = float(input1)
     except ValueError as e: #数字以外の入力でループ
         print("入力に失敗しました。もう一度数字を入力してください。")
@@ -170,7 +170,7 @@ while True:
 #位置ベクトルのz成分を設定
 while True:
     try:
-        exec(f"input1 =  input('{str(DOF)}Prのz成分を入力してください: ')")
+        exec(f"input1 = input('{str(DOF)}Prのz成分を入力してください:')")
         vector_r_z = float(input1)
     except ValueError as e: #数字以外の入力でループ
         print("入力に失敗しました。もう一度数字を入力してください。")
@@ -203,7 +203,7 @@ for j in range(0, DOF + 1):
     exec(f"oPr += l{str(j)}")
 
 np_oPr = sy.matrix2numpy(oPr) #sympyからnumpyに変換
-print("順運動学解は: \n {}" .format(np_oPr)) #順運動学解を表示
+print("順運動学解は:\n{}" .format(np_oPr)) #順運動学解を表示
 
 
 #有顔ベクトルを求める
@@ -221,7 +221,7 @@ np_c = sy.matrix2numpy(c)
 ab = np.append(a, b, axis=1)
 abc = np.append(ab, c, axis=1)
 
-print("有顔ベクトルは: \n {}" .format(abc)) #有顔ベクトルを表示
+print("有顔ベクトルは:\n{}" .format(abc)) #有顔ベクトルを表示
 
 
 #根本座標{x, y, z] = [0, 0, 0]を設定
@@ -243,7 +243,7 @@ z = np.append(z, l0[2])
 for l in range(1, DOF + 1):
     while True:
         try:
-            exec(f"input1 = input('θ{str(l)}の角度をdegで入力してください: ')")
+            exec(f"input1 = input('θ{str(l)}の角度をdegで入力してください:')")
             deg = float(input1)
         except ValueError as e: #数字以外の入力でループ
             print("入力に失敗しました。もう一度数字を入力してください。")
@@ -273,9 +273,9 @@ for l in range(1, DOF + 1):
     exec(f"z = np.append(z, ol{str(l)}[2])")
 
 
-print("x = \n {}".format(x))
-print("y = \n {}".format(y))
-print("z = \n {}".format(z))
+print("x =\n{}".format(x))
+print("y =\n{}".format(y))
+print("z =\n{}".format(z))
 
 
 #有顔ベクトルに角度を代入
