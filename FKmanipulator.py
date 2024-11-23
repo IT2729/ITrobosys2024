@@ -64,12 +64,14 @@ for i in range(1, DOF + 1):
             exec(f"p{str(i)}_z = vector_r_z")
             break
     
+    #x,y,z成分から位置ベクトルを作成
     exec(f"p{str(i)}= sy.Matrix(\
          [[p{str(i)}_x], \
          [p{str(i)}_y], \
          [p{str(i)}_z]]\
-         )") #x,y,z成分から位置ベクトルを生成
-    exec(f"print(p{str(i)})") #位置ベクトルを表示
+         )")
+    exec(f"p{str(i)}_np = sy.matrix2numpy(p{str(i)})") #printの視認性のためsympyからnumpyに変換
+    exec(f"print(p{str(i)}_np)") #位置ベクトルを表示
 
     #回転軸ベクトルを設定
     while True:
@@ -150,9 +152,11 @@ while True:
     else:
         exec(f"pr_z = vector_r_z")
         break
-    
-exec(f"p{str(DOF + 1)} = sy.Matrix([[pr_x], [pr_y], [pr_z]])") #x,y,z成分から位置ベクトルを生成
-exec(f"print(p{str(DOF + 1)})") #位置ベクトルを表示
+
+#x,y,z成分から位置ベクトルを作成
+exec(f"p{str(DOF + 1)} = sy.Matrix([[pr_x], [pr_y], [pr_z]])")
+exec(f"p{str(DOF + 1)}_np = sy.matrix2numpy(p{str(DOF + 1)})") #printの視認性のためsympyからnumpyに変換
+exec(f"print(p{str(DOF + 1)}_np)") #位置ベクトルを表示
 
 
 #順運動学解を求める
@@ -163,8 +167,9 @@ for j in range(0, DOF + 1):
         exec(f"A = r{str(k)} * A")
         k -= 1
     exec(f"l{str(j)} = A")
-    exec(f"print('l{str(j)}は')")
-    exec(f"print(l{str(j)})")
+    exec(f"l{str(j)}_np = sy.matrix2numpy(l{str(j)})") #printの視認性のためsympyからnumpyに変換
+    exec(f"print('l{str(j)} =')")
+    exec(f"print(l{str(j)}_np)")
     exec(f"oPr += l{str(j)}")
 
 np_oPr = sy.matrix2numpy(oPr) #sympyからnumpyに変換
@@ -233,9 +238,9 @@ for l in range(1, DOF + 1):
     exec(f"z = np.append(z, ol{str(l)}[2])")
 
 
-print(x)
-print(y)
-print(z)
+print("x = \n {}".format(x))
+print("y = \n {}".format(y))
+print("z = \n {}".format(z))
 
 
 #有顔ベクトルに角度を代入
