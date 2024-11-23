@@ -305,8 +305,8 @@ Max_mat = [max(x), max(y), max(z)]
 Max_num = max(Max_mat)
 Min_mat = [min(x), min(y), min(z)]
 Min_num = min(Min_mat)
-Max = np.float16(round(Max_num + 1 + abs(Max_num) / 10.0, 1))
-Min = np.float16(round(Min_num - 1 - abs(Min_num) / 10.0, 1))
+Max = np.float16(round(Max_num + 1, 1))
+Min = np.float16(round(Min_num - 1, 1))
 if abs(Max) > abs(Min):
     Range = abs(Max)
 elif abs(Min) > abs(Max):
@@ -346,6 +346,7 @@ ax.plot(a_x, a_y, a_z, color="red")
 ax.plot(b_x, b_y, b_z, color="green")
 ax.plot(c_x, c_y, c_z, color="blue")
 
+ax.set_box_aspect((1, 1, 1))
 ax.legend()
 
 plt.show()
