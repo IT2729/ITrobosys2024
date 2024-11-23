@@ -18,12 +18,12 @@ while True:
         strDOF = input("自由度を入力してください: ")
         DOF = int(strDOF)
     except ValueError as e: #数字以外の入力でループ
-        print("入力に失敗しました。もう一度数字で入力してください。") 
+        print("入力に失敗しました。もう一度整数を入力してください。") 
     else:
         if DOF > 100:
-            print("自由度が多すぎます。100以下の数字を入力してください。")
+            print("自由度が多すぎます。100以下の整数を入力してください。")
         elif DOF < 0:
-            print("入力に失敗しました。0以上の数字を入力してください。")
+            print("入力に失敗しました。0以上の整数を入力してください。")
         else:
             break
 
@@ -35,7 +35,7 @@ for i in range(1, DOF + 1):
             exec(f"input1 =  input('{str(i - 1)}P{str(i)}のx成分を入力してください: ')")
             vector_r_x = float(input1)
         except ValueError as e: #数字以外の入力でループ
-            print("入力に失敗しました。もう一度数字で入力してください。")
+            print("入力に失敗しました。もう一度数字を入力してください。")
         else:
             exec(f"p{str(i)}_x = vector_r_x")
             break
@@ -46,7 +46,7 @@ for i in range(1, DOF + 1):
             exec(f"input1 = input('{str(i - 1)}P{str(i)}のy成分を入力してください: ')")
             vector_r_y = float(input1)
         except ValueError as e: #数字以外の入力でループ
-            print("入力に失敗しました。もう一度数字で入力してください。")
+            print("入力に失敗しました。もう一度数字を入力してください。")
         else:
             exec(f"p{str(i)}_y = vector_r_y")
             break
@@ -57,7 +57,7 @@ for i in range(1, DOF + 1):
             exec(f"input1 =  input('{str(i - 1)}P{str(i)}のz成分を入力してください: ')")
             vector_r_z = float(input1)
         except ValueError as e: #数字以外の入力でループ
-            print("入力に失敗しました。もう一度数字で入力してください。")
+            print("入力に失敗しました。もう一度数字を入力してください。")
         else:
             exec(f"p{str(i)}_z = vector_r_z")
             break
@@ -67,7 +67,7 @@ for i in range(1, DOF + 1):
 
     #回転軸ベクトルを設定
     while True:
-        exec(f"input1 = input('θ{str(i)}回転軸ベクトルの向きをx,y,zで入力: ')")
+        exec(f"input1 = input('θ{str(i)}回転軸ベクトルの向きをx,y,zで入力してください: ')")
         if input1 == str("x"):
             exec(f"s{str(i)}= np.array([[1], [0], [0]])")
             exec(f"print(s{str(i)})")
@@ -89,7 +89,7 @@ for i in range(1, DOF + 1):
             exec(f"r{str(i)} = sy.Matrix([[sy.cos(theta{str(i)}), - sy.sin(theta{str(i)}), 0], [sy.sin(theta{str(i)}), sy.cos(theta{str(i)}), 0], [0, 0 ,1]])")
             break
         else:
-            print("入力に失敗しました。もう一度x,y,zで入力してください。")
+            print("入力に失敗しました。もう一度x,y,zを入力してください。")
 
 
 #位置ベクトルのx成分を設定
@@ -98,7 +98,7 @@ while True:
         exec(f"input1 =  input('{str(DOF)}Prのx成分を入力してください: ')")
         vector_r_x = float(input1)
     except ValueError as e: #数字以外の入力でループ
-        print("入力に失敗しました。もう一度数字で入力してください。")
+        print("入力に失敗しました。もう一度数字を入力してください。")
     else:
         exec(f"pr_x = vector_r_x")
         break
@@ -109,7 +109,7 @@ while True:
         exec(f"input1 = input('{str(DOF)}Prのy成分を入力してください: ')")
         vector_r_y = float(input1)
     except ValueError as e: #数字以外の入力でループ
-        print("入力に失敗しました。もう一度数字で入力してください。")
+        print("入力に失敗しました。もう一度数字を入力してください。")
     else:
         exec(f"pr_y = vector_r_y")
         break
@@ -120,7 +120,7 @@ while True:
         exec(f"input1 =  input('{str(DOF)}Prのz成分を入力してください: ')")
         vector_r_z = float(input1)
     except ValueError as e: #数字以外の入力でループ
-        print("入力に失敗しました。もう一度数字で入力してください。")
+        print("入力に失敗しました。もう一度数字を入力してください。")
     else:
         exec(f"pr_z = vector_r_z")
         break
@@ -176,7 +176,7 @@ for l in range(1, DOF + 1):
             exec(f"input1 = input('θ{str(l)}の角度をdegで入力してください: ')")
             deg = float(input1)
         except ValueError as e:
-            print("入力に失敗しました。もう一度数字で入力してください。")
+            print("入力に失敗しました。もう一度数字を入力してください。")
         else:
             exec(f"rad{str(l)} = sy.pi / 180.0 * deg")
             break
