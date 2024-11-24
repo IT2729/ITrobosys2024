@@ -224,7 +224,7 @@ abc = np.append(ab, c, axis=1)
 print("有顔ベクトルは:\n{}" .format(abc)) #有顔ベクトルを表示
 
 
-#根本座標{x, y, z] = [0, 0, 0]を設定
+#根本座標[x, y, z] = [0, 0, 0]を設定
 x = np.zeros((1, 1))
 y = np.zeros((1, 1))
 z = np.zeros((1, 1))
