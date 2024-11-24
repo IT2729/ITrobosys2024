@@ -90,7 +90,7 @@ for i in range(1, DOF + 1):
 
     #回転軸ベクトルを設定
     while True:
-        exec(f"input1 = input('θ{str(i)}回転軸ベクトルの向きをx,y,zで入力してください:')")
+        exec(f"input1 = input('θ{str(i)}の回転軸ベクトルの向きをx,y,zで入力してください:')")
         #x軸周りの回転の場合
         if input1 == str("x"):
             exec(f"s{str(i)}= np.array([[1], [0], [0]])")
