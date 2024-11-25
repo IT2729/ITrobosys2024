@@ -25,9 +25,9 @@ out=$(diff "test/test3_FKmanipulator_output.txt" "test/test3_FKmanipulator_corre
 [ "$out" = "" ] || error 
 
 ###正常な入力を試す4###
-#python "FKmanipulator.py" < "test4_FKmanipulator_input.txt" > "test4_FKmanipulator_output.txt"
-#out=$(diff "test4_FKmanipulator_output.txt" "test4_FKmanipulator_correctoutput.txt")
-#[ "$out" = "" ] || error
+python "FKmanipulator.py" < "test/test4_FKmanipulator_input.txt" > "test/test4_FKmanipulator_output.txt"
+out=$(diff "test/test4_FKmanipulator_output.txt" "test/test4_FKmanipulator_correctoutput.txt")
+[ "$out" = "" ] || error
 
 ###正常な入力を試す5###
 #python "FKmanipulator.py" < "test5_FKmanipulator_input.txt" > "test5_FKmanipulator_output.txt"
