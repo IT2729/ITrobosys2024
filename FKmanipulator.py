@@ -253,7 +253,7 @@ for l in range(1, DOF + 1):
             elif deg < - 10000: #最小角度を定義
                 print("数字が小さすぎます。-10000以上の数字を入力してください。")
             else:
-                exec(f"rad{str(l)} = sy.pi / 180.0 * deg") #degからradに変換
+                exec(f"rad{str(l)} = np.pi / 180.0 * deg") #degからradに変換
                 break
     
     #原点から間接の位置ベクトルに角度を代入し、x,y,zの末尾に追加
