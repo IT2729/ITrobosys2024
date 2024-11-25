@@ -92,7 +92,7 @@ for i in range(1, DOF + 1):
     while True:
         exec(f"input1 = input('θ{str(i)}の回転軸ベクトルの向きをx,y,zで入力してください:')")
         #x軸周りの回転の場合
-        if input1 == str("x"):
+        if input1 == str("x") or input1 == str("X"):
             exec(f"s{str(i)}= np.array([[1], [0], [0]])")
             exec(f"print(s{str(i)})")
             exec(f"theta{str(i)} = sy.symbols('theta{str(i)}')")
@@ -105,7 +105,7 @@ for i in range(1, DOF + 1):
             break
 
         #y軸周りの回転の場合
-        elif input1 == str("y"):
+        elif input1 == str("y") or input1 == str("Y"):
             exec(f"s{str(i)}= np.array([[0], [1], [0]])")
             exec(f"print(s{str(i)})")
             exec(f"theta{str(i)} = sy.symbols('theta{str(i)}')")
@@ -118,7 +118,7 @@ for i in range(1, DOF + 1):
             break
 
         #z軸周りの回転の場合
-        elif input1 == str("z"):
+        elif input1 == str("z") or input1 == str("Z"):
             exec(f"s{str(i)}= np.array([[0], [0], [1]])")
             exec(f"print(s{str(i)})")
             exec(f"theta{str(i)} = sy.symbols('theta{str(i)}')")
