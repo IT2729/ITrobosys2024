@@ -1,0 +1,57 @@
+自由度を入力してください:0P1のx成分を入力してください:0P1のy成分を入力してください:0P1のz成分を入力してください:[[0.0]
+ [0.0]
+ [1.00000000000000]]
+θ1の回転軸ベクトルの向きをx,y,zで入力してください:[[0]
+ [0]
+ [1]]
+1P2のx成分を入力してください:1P2のy成分を入力してください:1P2のz成分を入力してください:[[0.0]
+ [0.0]
+ [1.00000000000000]]
+θ2の回転軸ベクトルの向きをx,y,zで入力してください:[[1]
+ [0]
+ [0]]
+2P3のx成分を入力してください:2P3のy成分を入力してください:2P3のz成分を入力してください:[[0.0]
+ [0.0]
+ [1.00000000000000]]
+θ3の回転軸ベクトルの向きをx,y,zで入力してください:[[0]
+ [1]
+ [0]]
+3Prのx成分を入力してください:3Prのy成分を入力してください:3Prのz成分を入力してください:[[0.0]
+ [0.0]
+ [1.00000000000000]]
+l0 =
+[[0]
+ [0]
+ [1.00000000000000]]
+l1 =
+[[0]
+ [0]
+ [1.00000000000000]]
+l2 =
+[[1.0*sin(theta1)*sin(theta2)]
+ [-1.0*sin(theta2)*cos(theta1)]
+ [1.0*cos(theta2)]]
+l3 =
+[[1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)]
+ [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3)]
+ [1.0*cos(theta2)*cos(theta3)]]
+順運動学解は:
+[[1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
+ [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
+ [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]]
+有顔ベクトルは:
+[[-1.0*sin(theta1)*sin(theta2)*sin(theta3) + 1.0*cos(theta1)*cos(theta3)
+  -1.0*sin(theta1)*cos(theta2)
+  1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)]
+ [1.0*sin(theta1)*cos(theta3) + 1.0*sin(theta2)*sin(theta3)*cos(theta1)
+  1.0*cos(theta1)*cos(theta2)
+  1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3)]
+ [-1.0*sin(theta3)*cos(theta2) 1.0*sin(theta2)
+  1.0*cos(theta2)*cos(theta3)]]
+θ1の角度をdegで入力してください:θ2の角度をdegで入力してください:θ3の角度をdegで入力してください:x =
+[0.0 0 0 -0.969846310392956 -0.796198132726031]
+y =
+[0.0 0 0 -0.171010071662829 -1.15581782467504]
+z =
+[0.0 1.00000000000000 2.00000000000000 2.17364817766693 2.17364817766693]
+グラフを表示しますか？[y/n]:

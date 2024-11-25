@@ -7,7 +7,7 @@ error () {
 
 res=0
 
-cd ../
+cd ~/robosys/robosys2024
 
 ###正常な入力を試す1###
 python "FKmanipulator.py" < "test/test1_FKmanipulator_input.txt" > "test/test1_FKmanipulator_output.txt" #入出力をtxtファイルにして実行
@@ -20,9 +20,9 @@ out=$(diff "test/test2_FKmanipulator_output.txt" "test/test2_FKmanipulator_corre
 [ "$out" = "" ] || error 
 
 ###正常な入力を試す3###
-#python "FKmanipulator.py" < "test3_FKmanipulator_input.txt" > "test3_FKmanipulator_output.txt"
-#out=$(diff "test3_FKmanipulator_output.txt" "test3_FKmanipulator_correctoutput.txt")
-#[ "$out" = "" ] || error 
+python "FKmanipulator.py" < "test/test3_FKmanipulator_input.txt" > "test/test3_FKmanipulator_output.txt"
+out=$(diff "test/test3_FKmanipulator_output.txt" "test/test3_FKmanipulator_correctoutput.txt")
+[ "$out" = "" ] || error 
 
 ###正常な入力を試す4###
 #python "FKmanipulator.py" < "test4_FKmanipulator_input.txt" > "test4_FKmanipulator_output.txt"
