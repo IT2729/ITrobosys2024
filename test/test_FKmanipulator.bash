@@ -35,9 +35,9 @@ out=$(diff "test/test5_FKmanipulator_output.txt" "test/test5_FKmanipulator_corre
 [ "$out" = "" ] || error
 
 ###x,y,zで入力のところにx,y,z以外の文字を、y,nで入力のところにy,n以外の文字を入力してみる###
-#python "FKmanipulator.py" < "test6_FKmanipulator_input.txt" > "test6_FKmanipulator_output.txt"
-#out=$(diff "test6_FKmanipulator_output.txt" "test6_FKmanipulator_correctoutput.txt")
-#[ "$out" = "" ] || error 
+python "FKmanipulator.py" < "test/test6_FKmanipulator_input.txt" > "test/test6_FKmanipulator_output.txt"
+out=$(diff "test/test6_FKmanipulator_output.txt" "test/test6_FKmanipulator_correctoutput.txt")
+[ "$out" = "" ] || error 
 
 ###数字で入力のところに文字を、x,y,zで入力のところの数字を入力してみる###
 #python "FKmanipulator.py" < "test7_FKmanipulator_input.txt" > "test7_FKmanipulator_output.txt"
