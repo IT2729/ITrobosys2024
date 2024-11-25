@@ -65,9 +65,9 @@ out=$(diff "test/test11_FKmanipulator_output.txt" "test/test11_FKmanipulator_cor
 [ "$out" = "" ] || error 
 
 ###何も入力せず改行してみる###
-#python "FKmanipulator.py" < "test12_FKmanipulator_input.txt" > "test12_FKmanipulator_output.txt"
-#out=$(diff "test12_FKmanipulator_output.txt" "test12_FKmanipulator_correctoutput.txt")
-#[ "$out" = "" ] || error 
+python "FKmanipulator.py" < "test/test12_FKmanipulator_input.txt" > "test/test12_FKmanipulator_output.txt"
+out=$(diff "test/test12_FKmanipulator_output.txt" "test/test12_FKmanipulator_correctoutput.txt")
+[ "$out" = "" ] || error 
 
 #エラーがなければOKを表示
 [ "$res" = 0 ] && echo OK
