@@ -55,9 +55,9 @@ out=$(diff "test/test9_FKmanipulator_output.txt" "test/test9_FKmanipulator_corre
 [ "$out" = "" ] || error 
 
 ###大きすぎる値とか小さすぎる値とかを入力してみる###
-#python "FKmanipulator.py" < "test10_FKmanipulator_input.txt" > "test10_FKmanipulator_output.txt"
-#out=$(diff "test10_FKmanipulator_output.txt" "test10_FKmanipulator_correctoutput.txt")
-#[ "$out" = "" ] || error 
+python "FKmanipulator.py" < "test/test10_FKmanipulator_input.txt" > "test/test10_FKmanipulator_output.txt"
+out=$(diff "test/test10_FKmanipulator_output.txt" "test/test10_FKmanipulator_correctoutput.txt")
+[ "$out" = "" ] || error 
 
 ###自由度を0にしてみる###
 #python "FKmanipulator.py" < "test11_FKmanipulator_input.txt" > "test11_FKmanipulator_output.txt"
