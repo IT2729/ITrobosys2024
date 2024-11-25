@@ -1,0 +1,59 @@
+自由度を入力してください:0P1のx成分を入力してください:0P1のy成分を入力してください:0P1のz成分を入力してください:[[-100.000000000000]
+ [-100.000000000000]
+ [0.0]]
+θ1の回転軸ベクトルの向きをx,y,zで入力してください:[[1]
+ [0]
+ [0]]
+1P2のx成分を入力してください:1P2のy成分を入力してください:1P2のz成分を入力してください:[[0.0]
+ [-100.000000000000]
+ [-100.000000000000]]
+θ2の回転軸ベクトルの向きをx,y,zで入力してください:[[0]
+ [1]
+ [0]]
+2P3のx成分を入力してください:2P3のy成分を入力してください:2P3のz成分を入力してください:[[-100.000000000000]
+ [0.0]
+ [-100.000000000000]]
+θ3の回転軸ベクトルの向きをx,y,zで入力してください:[[0]
+ [0]
+ [1]]
+3Prのx成分を入力してください:3Prのy成分を入力してください:3Prのz成分を入力してください:[[-100.000000000000]
+ [-100.000000000000]
+ [-100.000000000000]]
+l0 =
+[[-100.000000000000]
+ [-100.000000000000]
+ [0]]
+l1 =
+[[0]
+ [100.0*sin(theta1) - 100.0*cos(theta1)]
+ [-100.0*sin(theta1) - 100.0*cos(theta1)]]
+l2 =
+[[-100.0*sin(theta2) - 100.0*cos(theta2)]
+ [-1.0*(100.0*sin(theta2) - 100.0*cos(theta2))*sin(theta1)]
+ [1.0*(100.0*sin(theta2) - 100.0*cos(theta2))*cos(theta1)]]
+l3 =
+[[1.0*(100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta2) - 100.0*sin(theta2)]
+ [-1.0*(-(100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta2) - 100.0*cos(theta2))*sin(theta1) + 1.0*(-100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta1)]
+ [1.0*(-(100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta2) - 100.0*cos(theta2))*cos(theta1) + 1.0*(-100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta1)]]
+順運動学解は:
+[[1.0*(100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta2) - 200.0*sin(theta2) - 100.0*cos(theta2) - 100.0]
+ [-1.0*(-(100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta2) - 100.0*cos(theta2))*sin(theta1) - 1.0*(100.0*sin(theta2) - 100.0*cos(theta2))*sin(theta1) + 1.0*(-100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta1) + 100.0*sin(theta1) - 100.0*cos(theta1) - 100.0]
+ [1.0*(-(100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta2) - 100.0*cos(theta2))*cos(theta1) + 1.0*(100.0*sin(theta2) - 100.0*cos(theta2))*cos(theta1) + 1.0*(-100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta1) - 100.0*sin(theta1) - 100.0*cos(theta1)]]
+有顔ベクトルは:
+[[1.0*cos(theta2)*cos(theta3) -1.0*sin(theta3)*cos(theta2)
+  1.0*sin(theta2)]
+ [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)
+  -1.0*sin(theta1)*sin(theta2)*sin(theta3) + 1.0*cos(theta1)*cos(theta3)
+  -1.0*sin(theta1)*cos(theta2)]
+ [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3)
+  1.0*sin(theta1)*cos(theta3) + 1.0*sin(theta2)*sin(theta3)*cos(theta1)
+  1.0*cos(theta1)*cos(theta2)]]
+θ1の角度をdegで入力してください:θ2の角度をdegで入力してください:θ3の角度をdegで入力してください:x =
+[0.0 -100.000000000000 -100.000000000000 -241.421356237310
+ -241.421356237309]
+y =
+[0.0 -100.000000000000 -136.602540378444 -136.602540378444
+ -152.494402638233]
+z =
+[0.0 0 -136.602540378444 -136.602540378444 -309.077027517603]
+グラフを表示しますか？[y/n]:
