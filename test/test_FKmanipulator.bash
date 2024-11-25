@@ -60,9 +60,9 @@ out=$(diff "test/test10_FKmanipulator_output.txt" "test/test10_FKmanipulator_cor
 [ "$out" = "" ] || error 
 
 ###自由度を0にしてみる###
-#python "FKmanipulator.py" < "test11_FKmanipulator_input.txt" > "test11_FKmanipulator_output.txt"
-#out=$(diff "test11_FKmanipulator_output.txt" "test11_FKmanipulator_correctoutput.txt")
-#[ "$out" = "" ] || error 
+python "FKmanipulator.py" < "test/test11_FKmanipulator_input.txt" > "test/test11_FKmanipulator_output.txt"
+out=$(diff "test/test11_FKmanipulator_output.txt" "test/test11_FKmanipulator_correctoutput.txt")
+[ "$out" = "" ] || error 
 
 ###何も入力せず改行してみる###
 #python "FKmanipulator.py" < "test12_FKmanipulator_input.txt" > "test12_FKmanipulator_output.txt"
