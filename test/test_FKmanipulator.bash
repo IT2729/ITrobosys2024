@@ -45,9 +45,9 @@ out=$(diff "test/test7_FKmanipulator_output.txt" "test/test7_FKmanipulator_corre
 [ "$out" = "" ] || error 
 
 ###記号を入力してみる###
-#python "FKmanipulator.py" < "test8_FKmanipulator_input.txt" > "test8_FKmanipulator_output.txt"
-#out=$(diff "test8_FKmanipulator_output.txt" "test8_FKmanipulator_correctoutput.txt")
-#[ "$out" = "" ] || error 
+python "FKmanipulator.py" < "test/test8_FKmanipulator_input.txt" > "test/test8_FKmanipulator_output.txt"
+out=$(diff "test/test8_FKmanipulator_output.txt" "test/test8_FKmanipulator_correctoutput.txt")
+[ "$out" = "" ] || error 
 
 ###数字と文字と記号を混ぜて入力してみる###
 #python "FKmanipulator.py" < "test9_FKmanipulator_input.txt" > "test9_FKmanipulator_output.txt"
