@@ -1,4 +1,4 @@
-name: FKmanipulator_test
+name: ubuntu-latest
 
 on: push
 
