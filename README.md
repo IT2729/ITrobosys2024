@@ -29,7 +29,7 @@ $$ \begin{bmatrix}
 インストール方法は以下の通り。
 
 ```bash
-pip install git+https://github.com/IT2729/robosys2024/FKmanipulator.py.git
+pip install git+https://github.com/IT2729/robosys2024
 ```
 
 ## Usage
@@ -49,7 +49,7 @@ python FKmanipulator.py
 
 - 実行例
 
-```python
+```
 $ python FKmanipulator.py
 自由度を入力してください:3
 0P1のx成分を入力してください:0
