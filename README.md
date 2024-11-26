@@ -9,6 +9,15 @@
 
 ## Description
 入力からマニピュレータの順運動学解を導き、それっぽくグラフを描画するプログラム。
+上図の先端の赤,緑,青は有顔ベクトルでそれぞれ**a**,**b**,**c**とすると初期値は
+
+\left[\begin{matrix} **a** & **b** & **c** \end{matrix}\right] = \left[
+\begin{matrix} 1 & 0 & 0 \\ 
+0 & 1 & 0 \\ 
+0 & 0 & 1
+\end{matrix}
+\right]
+
 
 ## Requirement
 
