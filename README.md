@@ -9,7 +9,7 @@
 
 ## Description
 入力からマニピュレータの順運動学解を導き、それっぽくグラフを描画するプログラム。
-上図の先端の赤,緑,青は有顔ベクトルでそれぞれ\mathrm{a},\mathrm{b},\mathrm{c}とすると初期値は
+上図の先端の赤,緑,青は有顔ベクトルでそれぞれ$\mathrm{a}$,$\mathrm{b}$,$\mathrm{c}$とすると初期値は
 
 $$ \begin{bmatrix}
 \mathrm{a} & \mathrm{b} & \mathrm{c}
