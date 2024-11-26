@@ -28,13 +28,13 @@ $$ \begin{bmatrix}
 ## Installation
 インストール方法は以下の通り。
 
-# With pip
+### With pip
 
 ```bash
 pip install git+https://github.com/IT2729/robosys2024
 ```
 
-# With git clone
+### With git clone
 
 ```bash
 git clone https://github.com/IT2729/robosys2024.git
