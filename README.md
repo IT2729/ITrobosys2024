@@ -8,7 +8,7 @@
 <img src="https://i.imgur.com/pV2jqEq.png" alt="the ploted graph">
 
 ## Description
-入力からマニピュレータの順運動学解を導き、それっぽくグラフを描画するプログラム。
+入力からマニピュレータの順運動学解を導き、角度を入力後マニピュレータっぽくグラフを描画するプログラム。
 
 上図の先端の赤,緑,青は有顔ベクトルでそれぞれ $\mathrm{a}$ , $\mathrm{b}$ , $\mathrm{c}$ とすると初期値は
 
