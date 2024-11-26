@@ -27,7 +27,9 @@ $$ \begin{bmatrix}
 ## Usage
 実行方法は以下の通り。
 
-'''python FKmanipulator.py'''
+```
+python FKmanipulator.py
+```
 
 あとは案内に従って、
 
@@ -37,7 +39,8 @@ $$ \begin{bmatrix}
 
 - 実行例
 
-'''$ python FKmanipulator.py
+```
+$ python FKmanipulator.py
 自由度を入力してください:3
 0P1のx成分を入力してください:0
 0P1のy成分を入力してください:0
@@ -113,7 +116,8 @@ y =
 [0.0 0 0 -0.612372435695794 -1.22474487139159]
 z =
 [0.0 1.00000000000000 2.00000000000000 2.70710678118655 2.00000000000000]
-グラフを表示しますか？[y/n]:y'''
+グラフを表示しますか？[y/n]:y
+```
 
 <img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
 
