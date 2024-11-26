@@ -21,6 +21,9 @@ $$ \begin{bmatrix}
 \end{bmatrix} $$
 
 ## Requirement
+- NumPy 2.1.3 or later
+- SymPy 1.13.3 or later
+- Matplotlib 3.9.2 or later
 
 ## Installation
 
