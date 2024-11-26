@@ -13,7 +13,7 @@
 上図の先端の赤,緑,青は有顔ベクトルでそれぞれ $\mathrm{a}$ , $\mathrm{b}$ , $\mathrm{c}$ とすると初期値は
 
 $$ \begin{bmatrix}
-\mathrm{a} & \mathrm{b} & \mathrm{c}
+^{0}\mathrm{a} & ^{0}\mathrm{b} & ^{0}\mathrm{c}
 \end{bmatrix} = \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
