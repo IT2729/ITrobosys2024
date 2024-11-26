@@ -2,7 +2,7 @@
 ロボットシステム学用
 
 # plusコマンド
-![test](https://github.com/IT2729/robosys2024/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/IT2729/robosys2024/actions/workflows/test_FKmanipulator.yml/badge.svg)
 
 ## 必要なソフトウェア
   - Python
