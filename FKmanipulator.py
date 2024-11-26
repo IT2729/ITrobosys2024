@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+# SPDX-FileCopyrightText: 2024 Itsuki Terasawa
+# SPDX-License-Identifier: BSD-3-Clause
+
 import numpy as np
 import sympy as sy
 import matplotlib.pyplot as plt
