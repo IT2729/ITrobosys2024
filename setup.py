@@ -11,6 +11,7 @@ setup(
     packages=find_packages(),
     entry_points = {
         'console_scripts': ['FKmanipulator = FKmanipulator.FKmanipulator:main']
+        },
     python_require='>=3.6',
 )
 
