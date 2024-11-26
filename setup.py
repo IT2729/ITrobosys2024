@@ -10,7 +10,7 @@ setup(
     url="https://github.com/IT2729/robosys2024",
     packages=find_packages(),
     entry_points = {
-        'console_scripts': ['FKmanipulator = FKmanipulator.FKmanipulator:main']
+        'console_scripts': ['FKmanipulator = FKmanipulator.FKmanipulator']
         },
     python_require='>=3.6',
 )
