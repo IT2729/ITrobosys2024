@@ -1,0 +1,21 @@
+name: FKmanipulator_test
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up and test with Python
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install numpy sympy matplotlib
+          bash -xv ./test.bash
+
+
