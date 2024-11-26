@@ -49,7 +49,7 @@ python FKmanipulator.py
 
 - 実行例
 
-```python
+```
 $ python FKmanipulator.py
 自由度を入力してください:3
 0P1のx成分を入力してください:0
