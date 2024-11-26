@@ -25,6 +25,97 @@ $$ \begin{bmatrix}
 ## Installation
 
 ## Usage
+実行方法は以下の通り。
+
+'''python FKmanipulator.py'''
+
+あとは案内に従って、
+
+自由度→位置ベクトル→回転軸ベクトル→位置ベクトル→...→回転軸ベクトル→位置ベクトル→角度[deg]→グラフの表示の要否
+
+を入力するだけ。
+
+- 実行例
+
+'''$ python FKmanipulator.py
+自由度を入力してください:3
+0P1のx成分を入力してください:0
+0P1のy成分を入力してください:0
+0P1のz成分を入力してください:1
+[[0.0]
+ [0.0]
+ [1.00000000000000]]
+θ1の回転軸ベクトルの向きをx,y,zで入力してください:z
+[[0]
+ [0]
+ [1]]
+1P2のx成分を入力してください:0
+1P2のy成分を入力してください:0
+1P2のz成分を入力してください:1
+[[0.0]
+ [0.0]
+ [1.00000000000000]]
+θ2の回転軸ベクトルの向きをx,y,zで入力してください:x
+[[1]
+ [0]
+ [0]]
+2P3のx成分を入力してください:0
+2P3のy成分を入力してください:0
+2P3のz成分を入力してください:1
+[[0.0]
+ [0.0]
+ [1.00000000000000]]
+θ3の回転軸ベクトルの向きをx,y,zで入力してください:x
+[[1]
+ [0]
+ [0]]
+3Prのx成分を入力してください:0
+3Prのy成分を入力してください:0
+3Prのz成分を入力してください:1
+[[0.0]
+ [0.0]
+ [1.00000000000000]]
+l0 =
+[[0]
+ [0]
+ [1.00000000000000]]
+l1 =
+[[0]
+ [0]
+ [1.00000000000000]]
+l2 =
+[[1.0*sin(theta1)*sin(theta2)]
+ [-1.0*sin(theta2)*cos(theta1)]
+ [1.0*cos(theta2)]]
+l3 =
+[[-1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*sin(theta1)]
+ [1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*cos(theta1)]
+ [-1.0*sin(theta2)*sin(theta3) + 1.0*cos(theta2)*cos(theta3)]]
+順運動学解は:
+[[-1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*sin(theta1) + 1.0*sin(theta1)*sin(theta2)]
+ [1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*cos(theta1) - 1.0*sin(theta2)*cos(theta1)]
+ [-1.0*sin(theta2)*sin(theta3) + 1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]]
+有顔ベクトルは:
+[[1.0*cos(theta1)
+  -1.0*(-sin(theta2)*sin(theta3) + cos(theta2)*cos(theta3))*sin(theta1)
+  -1.0*(-sin(theta2)*cos(theta3) - sin(theta3)*cos(theta2))*sin(theta1)]
+ [1.0*sin(theta1)
+  1.0*(-sin(theta2)*sin(theta3) + cos(theta2)*cos(theta3))*cos(theta1)
+  1.0*(-sin(theta2)*cos(theta3) - sin(theta3)*cos(theta2))*cos(theta1)]
+ [0 1.0*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta2)
+  -1.0*sin(theta2)*sin(theta3) + 1.0*cos(theta2)*cos(theta3)]]
+θ1の角度をdegで入力してください:30
+θ2の角度をdegで入力してください:45
+θ3の角度をdegで入力してください:90
+x =
+[0.0 0 0 0.353553390593274 0.707106781186547]
+y =
+[0.0 0 0 -0.612372435695794 -1.22474487139159]
+z =
+[0.0 1.00000000000000 2.00000000000000 2.70710678118655 2.00000000000000]
+グラフを表示しますか？[y/n]:y'''
+
+<img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
 
 ## Reference
 1. 3Dグラフの作成【matplotlib】( https://liquids.dev/articles/017df634-6a8e-47e0-b0af-6a3fb8bd5790 )
