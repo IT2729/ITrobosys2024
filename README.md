@@ -14,7 +14,11 @@
 
 $$ \begin{bmatrix}
 ^{0}\mathrm{a} & ^{0}\mathrm{b} & ^{0}\mathrm{c}
-\end{bmatrix} = \begin{bmatrix}
+\end{bmatrix} \left( = \begin{bmatrix}
+\mathrm{a}_x & \mathrm{b}_x & \mathrm{c}_x\\
+\mathrm{a}_y & \mathrm{b}_y & \mathrm{c}_y\\
+\mathrm{a}_z & \mathrm{b}_z & \mathrm{c}_z
+\end{bmatrix} \right) = \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
 0 & 0 & 1
