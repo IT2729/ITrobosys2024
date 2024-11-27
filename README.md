@@ -140,11 +140,12 @@ z =
 
 <img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
 
-## About GitHub Actions
+## About GitHub Action
+- <a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">ubuntu-latest</a>
 <table width="800">
   <thead>
     <tr>
-      <th scope="col">Workflow</th>
+      <th scope="col">Purpose</th>
       <th scope="col">OS</th>
       <th scope="col">Language</th>
       <th scope="col">Language Ver.</th>
@@ -154,7 +155,7 @@ z =
   </thead>
   <tbody>
     <tr>
-      <td width="16.5%"><a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">ubuntu-latest</a></td>
+      <td width="16.5%">For testing</td>
       <td width="28.5%">Ubuntu 最新版<br>(編集時点ver.22.04.5 LTS)</td>
       <td width="10%">Python</td>
       <td width="12,5%">3.6~3.12</td>
