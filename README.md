@@ -144,6 +144,7 @@ z =
 <table width="800">
   <thead>
     <tr>
+      <th scope="col">Workflow</th>
       <th scope="col">OS</th>
       <th scope="col">Language</th>
       <th scope="col">Language Ver.</th>
@@ -153,11 +154,12 @@ z =
   </thead>
   <tbody>
     <tr>
-  <td width="30%">Ubuntu 最新版<br>(編集時点ver.22.04.5 LTS)</td>
+      <td width="20%"><a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">ubuntu-latest</a></td>
+      <td width="25%">Ubuntu 最新版<br>(編集時点ver.22.04.5 LTS)</td>
       <td width="10%">Python</td>
-      <td width="17,5%">3.6~3.12</td>
-      <td width="17.5%">v3</td>
-      <td width="25%"><a href="https://github.com/IT2729/robosys2024/blob/main/test/test_FKmanipulator.bash">test_FKmnaipulator.bash</a></td>
+      <td width="12,5%">3.6~3.12</td>
+      <td width="12.5%">v3</td>
+      <td width="20%"><a href="https://github.com/IT2729/robosys2024/blob/main/test/test_FKmanipulator.bash">test_FKmnaipulator.bash</a></td>
     </tr>
   </tbody>
 </table>
