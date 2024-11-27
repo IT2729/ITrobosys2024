@@ -154,8 +154,8 @@ z =
   </thead>
   <tbody>
     <tr>
-      <td width="15%"><a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">ubuntu-latest</a></td>
-      <td width="30%">Ubuntu 最新版<br>(編集時点ver.22.04.5 LTS)</td>
+      <td width="17.5%"><a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">ubuntu-latest</a></td>
+      <td width="27.5%">Ubuntu 最新版<br>(編集時点ver.22.04.5 LTS)</td>
       <td width="10%">Python</td>
       <td width="12,5%">3.6~3.12</td>
       <td width="12.5%">v3</td>
