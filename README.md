@@ -44,9 +44,12 @@ mv robosys2024/FKmanipulator.py < 任意の移動先ディレクトリ >
 ## Usage
 実行方法は以下の通り。
 
+プログラムがあるディレクトリで
+
 ```
 python FKmanipulator.py
 ```
+を入力する。
 
 あとは案内に従って、
 
