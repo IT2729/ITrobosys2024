@@ -140,6 +140,9 @@ z =
 
 <img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
 
+## About GitHub Actions
+
+
 ## Reference
 1. 3Dグラフの作成【matplotlib】(https://liquids.dev/articles/017df634-6a8e-47e0-b0af-6a3fb8bd5790)
 2. matplotlibで3次元プロットする際に3軸のスケールを揃える (https://qiita.com/ae14watanabe/items/71f678755525d8088849)
