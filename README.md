@@ -141,6 +141,26 @@ z =
 <img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
 
 ## About GitHub Actions
+<table>
+  <thead>
+    <tr>
+      <th scope="col">OS</th>
+      <th scope="col">Language</th>
+      <th scope="col">Language Ver.</th>
+      <th scope="col">Checkout Ver.</th>
+      <th scope="col">Runnning Program</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ubuntu最新版</td>
+      <td>Python</td>
+      <td>3.6~3.12</td>
+      <td>v3</td>
+      <td><a href="https://github.com/IT2729/robosys2024/blob/main/test/test_FKmanipulator.bash">test_FKmnaipulator.bash</a></td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## Reference
