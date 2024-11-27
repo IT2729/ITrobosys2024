@@ -65,8 +65,8 @@ python FKmanipulator.py
 
 - 実行例
 
-```
-$ python FKmanipulator.py
+```ansi
+$ \u001b[1;32mpython FKmanipulator.py\u001b[0m
 自由度を入力してください:3
 0P1のx成分を入力してください:0
 0P1のy成分を入力してください:0
