@@ -159,7 +159,7 @@ z =
       <td width="28.5%">Ubuntu latest ver.<br>(Now ver. 22.04.5 LTS)</td>
       <td width="10%">Python</td>
       <td width="12,5%">3.6~3.12</td>
-      <td width="12.5%">v3</td>
+      <td width="12.5%">v4</td>
       <td width="20%"><a href="https://github.com/IT2729/robosys2024/blob/main/test/test_FKmanipulator.bash">test_FKmnaipulator.bash</a></td>
     </tr>
   </tbody>
