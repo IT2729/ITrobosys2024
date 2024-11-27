@@ -141,7 +141,7 @@ z =
 <img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
 
 ## About GitHub Actions
-<table width="700">
+<table width="800">
   <thead>
     <tr>
       <th scope="col">OS</th>
