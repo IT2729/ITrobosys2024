@@ -146,7 +146,7 @@ z =
 ```
 <div style="text-align: center">
   <div class="the gragh ploted by the execution example">
-    <img src="https://i.imgur.com/D3gs2G2.png">
+    <img src="https://i.imgur.com/D3gs2G2.png"\>
     <p>実行例で生成されたグラフ</p>
   </div>
 </div>
