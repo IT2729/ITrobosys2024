@@ -30,13 +30,13 @@ $$ \begin{bmatrix}
 
 ### With pip
 
-```bash
+```
 pip install git+https://github.com/IT2729/robosys2024
 ```
 
 ### With git clone
 
-```bash
+```
 git clone https://github.com/IT2729/robosys2024.git
 mv robosys2024/FKmanipulator.py < 任意の移動先ディレクトリ >
 ```
@@ -44,7 +44,7 @@ mv robosys2024/FKmanipulator.py < 任意の移動先ディレクトリ >
 ## Usage
 実行方法は以下の通り。
 
-```python
+```
 python FKmanipulator.py
 ```
 
@@ -141,7 +141,7 @@ z =
 <img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
 
 ## About GitHub Actions
-<table>
+<table width="500">
   <thead>
     <tr>
       <th scope="col">OS</th>
