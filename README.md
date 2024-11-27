@@ -15,9 +15,9 @@
 $$ \begin{bmatrix}
 ^{0}\mathrm{a} & ^{0}\mathrm{b} & ^{0}\mathrm{c}
 \end{bmatrix} \left( = \begin{bmatrix}
-\mathrm{a}_x & \mathrm{b}_x & \mathrm{c}_x\\
-\mathrm{a}_y & \mathrm{b}_y & \mathrm{c}_y\\
-\mathrm{a}_z & \mathrm{b}_z & \mathrm{c}_z
+^{0}a_x & ^{0}b_x & ^{0}c_x\\
+^{0}a_y & ^{0}b_y & ^{0}c_y\\
+^{0}a_z & ^{0}b_z & ^{0}c_z\\
 \end{bmatrix} \right) = \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
