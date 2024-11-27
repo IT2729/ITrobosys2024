@@ -153,7 +153,7 @@ z =
   </thead>
   <tbody>
     <tr>
-      <td>Ubuntu最新版</td>
+      <td>Ubuntu最新版(編集時点ver.22.04.5 LTS)</td>
       <td>Python</td>
       <td>3.6~3.12</td>
       <td>v3</td>
