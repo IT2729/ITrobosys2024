@@ -140,7 +140,7 @@ z =
 
 <img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
 
-## About GitHub Action
+## About GitHub Actions
 - <a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">ubuntu-latest</a>
 <table width="800">
   <thead>
