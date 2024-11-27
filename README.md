@@ -156,7 +156,7 @@ z =
   <tbody>
     <tr>
       <td width="16.5%">For testing</td>
-      <td width="28.5%">Ubuntu 最新版<br>(編集時点ver.22.04.5 LTS)</td>
+      <td width="28.5%">Ubuntu latest ver.<br>(Now ver.22.04.5 LTS)</td>
       <td width="10%">Python</td>
       <td width="12,5%">3.6~3.12</td>
       <td width="12.5%">v3</td>
