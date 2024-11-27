@@ -38,7 +38,7 @@ pip install git+https://github.com/IT2729/robosys2024
 
 ```bash
 git clone https://github.com/IT2729/robosys2024.git
-mv FKmanipulator.py < 任意の移動先ディレクトリ >
+mv robosys2024/FKmanipulator.py < 任意の移動先ディレクトリ >
 ```
 
 ## Usage
