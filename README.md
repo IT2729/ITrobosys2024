@@ -144,8 +144,10 @@ z =
 [0.0 1.00000000000000 2.00000000000000 2.70710678118655 2.00000000000000]
 グラフを表示しますか？[y/n]:y
 ```
-
-<img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
+<div class="the gragh ploted by the execution example">
+  <img src="https://i.imgur.com/D3gs2G2.png">
+  <p>実行例で生成されたグラフ</p>
+</div>
 
 ## About GitHub Actions
 - <a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">ubuntu-latest</a>
