@@ -153,11 +153,11 @@ z =
   </thead>
   <tbody>
     <tr>
-      <td>Ubuntu最新版(編集時点ver.22.04.5 LTS)</td>
-      <td>Python</td>
-      <td>3.6~3.12</td>
-      <td>v3</td>
-      <td><a href="https://github.com/IT2729/robosys2024/blob/main/test/test_FKmanipulator.bash">test_FKmnaipulator.bash</a></td>
+      <td width="30%">Ubuntu最新版 (編集時点ver.22.04.5 LTS)</td>
+      <td width="10%">Python</td>
+      <td width="17,5%">3.6~3.12</td>
+      <td width="17.5%">v3</td>
+      <td width="25%"><a href="https://github.com/IT2729/robosys2024/blob/main/test/test_FKmanipulator.bash">test_FKmnaipulator.bash</a></td>
     </tr>
   </tbody>
 </table>
