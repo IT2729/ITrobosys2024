@@ -148,12 +148,12 @@ z =
       <th scope="col">Language</th>
       <th scope="col">Language Ver.</th>
       <th scope="col">Checkout Ver.</th>
-      <th scope="col">Runnning Program</th>
+      <th scope="col">Running Program</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td width="30%">Ubuntu最新版 (編集時点ver.22.04.5 LTS)</td>
+  <td width="30%">Ubuntu 最新版<br>(編集時点ver.22.04.5 LTS)</td>
       <td width="10%">Python</td>
       <td width="17,5%">3.6~3.12</td>
       <td width="17.5%">v3</td>
