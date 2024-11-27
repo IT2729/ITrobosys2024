@@ -144,7 +144,7 @@ z =
 [0.0 1.00000000000000 2.00000000000000 2.70710678118655 2.00000000000000]
 グラフを表示しますか？[y/n]:y
 ```
-<div class="the gragh ploted by the execution example">
+<div class="the gragh ploted by the execution example" style="text-align:center">
   <img src="https://i.imgur.com/D3gs2G2.png">
   <p>実行例で生成されたグラフ</p>
 </div>
