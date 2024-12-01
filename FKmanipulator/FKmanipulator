@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+
+import sys
+import numpy as np
+import sympy as sy
+import math
+
+input_list = np.empty(0)
+
+for line in sys.stdin:
+    line = line.strip()
+    input1 = line.split(' ')
+    input_list = np.append(input_list, input1)
+
+print(input_list)
