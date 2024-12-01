@@ -134,7 +134,7 @@ ab = np.append(a, b, axis=1)
 abc = np.append(ab, c, axis=1)
 
 
-# モードごとの処理を定義
+# モードごとの処理を選択
 # モード1の場合
 if mode == 1:
     print(oPr_np)  # 順運動学解を出力
