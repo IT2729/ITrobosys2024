@@ -10,6 +10,8 @@ input_list = np.empty(0)  # リスト生成用空行列
 # 標準入力からデータを取得
 for line in sys.stdin:
     line = line.strip()  # 改行を削除
+    if line == str(''):  # 何も入力せず改行で入力終了
+        break
     input1 = line.split(' ')  # echoコマンドなど横並び入力用に半角スペース区切りで行列を作成
     input_list = np.append(input_list, input1)  # 取得したデータをinput_listの末尾に入れてリスト化
 
