@@ -187,7 +187,7 @@ elif mode == 4:
         exec(f"y = np.append(y, ol{str(m)}[1])")
         exec(f"z = np.append(z, ol{str(m)}[2])")
 
-    # コード生成のためにリストを文字列化
+    # コード生成のために行列を文字列化
     x_str = np.array2string(x, separator=', ')
     y_str = np.array2string(y, separator=', ')
     z_str = np.array2string(z, separator=', ')
