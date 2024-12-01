@@ -16,8 +16,9 @@ for line in sys.stdin:
     input_list = np.append(input_list, input1)  # 取得したデータをinput_listの末尾に入れてリスト化
 
 
-DOF = int(input_list[0])  # 自由度を取得
-element_num = 1  # リストの要素抽出用変数
+mode = int(input_list[0])
+DOF = int(input_list[1])  # 自由度を取得
+element_num = 2  # リストの要素抽出用変数
 
 
 # リストから位置ベクトルと座標変換行列を生成
@@ -110,8 +111,6 @@ for j in range(0, DOF + 1):
 oPr = A
 oPr_np = sy.matrix2numpy(oPr)  # printの可読性のためsympyからnumpyに変換
 
-print(oPr_np)
-
 
 # 有顔ベクトルの初期値を定義
 a = sy.Matrix([[1], [0], [0]])
@@ -133,5 +132,18 @@ np_c = sy.matrix2numpy(c)
 ab = np.append(a, b, axis=1)
 abc = np.append(ab, c, axis=1)
 
-print(abc)
-    
+
+# モードごとの処理を定義
+# モード1の場合
+if mode == 1:
+    print(oPr_np)  # 順運動学解を出力
+
+# モード2の場合
+elif mode == 2:
+    print(abc)  # 有顔ベクトルを出力
+
+# モード3の場合
+elif mode == 3:
+    print("順運動学解は: 0Pr =\n{}\n有顔ベクトルは: [a b c] =\n{}".format(oPr_np, abc))
+
+
