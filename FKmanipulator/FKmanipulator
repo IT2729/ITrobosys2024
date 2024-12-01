@@ -15,11 +15,11 @@ for line in sys.stdin:
 
 
 DOF = int(input_list[0])  # 自由度を取得
-j = 1
+j = 1  # リストの要素抽出用変数
 
 
 # リストから位置ベクトルと座標変換行列を生成
-# まず最後の関節から先端までの位置ベクトル以外
+# 最後の関節から先端までの位置ベクトル以外を生成
 for i in range(1, DOF + 1):
     # 位置ベクトルを生成
     vector_p_x = float(input_list[j])  # リストから位置ベクトルのx成分に該当する箇所を抽出
@@ -68,3 +68,23 @@ for i in range(1, DOF + 1):
              )
     j += 1
 
+
+# 最後の関節から先端までの位置ベクトルを生成
+vector_p_x = float(input_list[j])  # リストから位置ベクトルのx成分に該当する箇所を抽出
+j += 1
+
+vector_p_y = float(input_list[j])  # リストから位置ベクトルのy生成に該当する箇所を抽出
+j += 1
+
+vector_p_z = float(input_list[j])  # リストから位置ベクトルのz成分に該当する箇所を抽出
+j += 1
+
+# x,y,z成分から位置ベクトルを生成
+exec(f"p{str(DOF + 1)} = sy.Matrix(\
+        [[vector_p_x],\
+        [vector_p_y],\
+        [vector_p_z]]\
+        )"
+     )
+
+print(p4)
