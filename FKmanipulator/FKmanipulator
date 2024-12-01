@@ -15,21 +15,21 @@ for line in sys.stdin:
 
 
 DOF = int(input_list[0])  # 自由度を取得
-j = 1  # リストの要素抽出用変数
+element_num = 1  # リストの要素抽出用変数
 
 
 # リストから位置ベクトルと座標変換行列を生成
-# 最後の関節から先端までの位置ベクトル以外を生成
+# 最後の関節から見た先端までの位置ベクトル以外を生成
 for i in range(1, DOF + 1):
     # 位置ベクトルを生成
-    vector_p_x = float(input_list[j])  # リストから位置ベクトルのx成分に該当する箇所を抽出
-    j += 1
+    vector_p_x = float(input_list[element_num])  # リストから位置ベクトルのx成分に該当する箇所を抽出
+    element_num += 1
 
-    vector_p_y = float(input_list[j])  # リストから位置ベクトルのy生成に該当する箇所を抽出
-    j += 1
+    vector_p_y = float(input_list[element_num])  # リストから位置ベクトルのy生成に該当する箇所を抽出
+    element_num += 1
 
-    vector_p_z = float(input_list[j])  # リストから位置ベクトルのz成分に該当する箇所を抽出
-    j += 1
+    vector_p_z = float(input_list[element_num])  # リストから位置ベクトルのz成分に該当する箇所を抽出
+    element_num += 1
 
     # x,y,z成分から位置ベクトルを生成
     exec(f"p{str(i)} = sy.Matrix(\
@@ -43,43 +43,45 @@ for i in range(1, DOF + 1):
     # 座標変換行列を生成
     exec(f"theta{str(i)} = sy.symbols('theta{str(i)}')")  # 関節の回転角度の変数thetaを定義
     # 回転軸ベクトルがx方向の場合
-    if input_list[j] == str("x"):
+    if input_list[element_num] == str("x"):
         exec(f"r{str(i)} = sy.Matrix(\
                 [[1, 0, 0],\
                 [0, sy.cos(theta{str(i)}), - sy.sin(theta{str(i)})],\
                 [0, sy.sin(theta{str(i)}), sy.cos(theta{str(i)})]]\
                 )"
              )
+
     # 回転軸ベクトルがy方向の場合
-    elif input_list[j] == str("y"):
+    elif input_list[element_num] == str("y"):
         exec(f"r{str(i)} = sy.Matrix(\
                 [[sy.cos(theta{str(i)}), 0, sy.sin(theta{str(i)})],\
                 [0, 1, 0],\
                 [- sy.sin(theta{str(i)}), 0, sy.cos(theta{str(i)})]]\
                 )"
              )
+
     # 回転軸ベクトルがz方向の場合
-    elif input_list[j] == str("z"):
+    elif input_list[element_num] == str("z"):
         exec(f"r{str(i)} = sy.Matrix(\
                 [[sy.cos(theta{str(i)}), - sy.sin(theta{str(i)}), 0],\
                 [sy.sin(theta{str(i)}), sy.cos(theta{str(i)}), 0],\
                 [0, 0, 1]]\
                 )"
              )
-    j += 1
+
+    element_num += 1
 
 
-# 最後の関節から先端までの位置ベクトルを生成
-vector_p_x = float(input_list[j])  # リストから位置ベクトルのx成分に該当する箇所を抽出
-j += 1
+# 最後の関節から見た手先までの位置ベクトルを生成
+vector_p_x = float(input_list[element_num])
+element_num += 1
 
-vector_p_y = float(input_list[j])  # リストから位置ベクトルのy生成に該当する箇所を抽出
-j += 1
+vector_p_y = float(input_list[element_num])
+element_num += 1
 
-vector_p_z = float(input_list[j])  # リストから位置ベクトルのz成分に該当する箇所を抽出
-j += 1
+vector_p_z = float(input_list[element_num])
+element_num += 1
 
-# x,y,z成分から位置ベクトルを生成
 exec(f"p{str(DOF + 1)} = sy.Matrix(\
         [[vector_p_x],\
         [vector_p_y],\
@@ -87,4 +89,24 @@ exec(f"p{str(DOF + 1)} = sy.Matrix(\
         )"
      )
 
-print(p4)
+
+# 順運動学解を求める
+r0 = np.eye(3)  # 根本から見た最初の関節の位置ベクトルに対する座標変換行列を定義
+A = sy.zeros(3, 1)  # 順運動学解導出用変数
+
+for j in range(0, DOF + 1):
+    # 関節の位置ベクトルに座標変換行列を掛けリンクベクトルを導出
+    k = j
+    exec(f"B = p{str(j + 1)}")
+    while k >= 0:
+        exec(f"B = r{str(k)} * B")
+        k -= 1
+    exec(f"l{str(j)} = B")
+    
+    exec(f"A += l{str(j)}")  # それぞれのリンクベクトルの合計し順運動学解を導出
+
+oPr = A
+oPr_np = sy.matrix2numpy(oPr)
+
+print(oPr_np)
+
