@@ -8,13 +8,17 @@
 <img src="https://i.imgur.com/pV2jqEq.png" alt="the ploted graph">
 
 ## Description
-入力からマニピュレータの順運動学解を導き、それっぽくグラフを描画するプログラム。
+入力からマニピュレータの順運動学解を導き、角度を入力後マニピュレータっぽくグラフを描画するプログラム。
 
-上図の先端の赤,緑,青は有顔ベクトルでそれぞれ $\mathrm{a}$ , $\mathrm{b}$ , $\mathrm{c}$ とすると初期値は
+上図の黄色線がマニピュレータの再現部分。先端の赤,緑,青線は有顔ベクトルでそれぞれ $\mathrm{a}$ , $\mathrm{b}$ , $\mathrm{c}$ とすると初期値は
 
 $$ \begin{bmatrix}
 ^{0}\mathrm{a} & ^{0}\mathrm{b} & ^{0}\mathrm{c}
-\end{bmatrix} = \begin{bmatrix}
+\end{bmatrix} \left( = \begin{bmatrix}
+^{0}a_x & ^{0}b_x & ^{0}c_x\\
+^{0}a_y & ^{0}b_y & ^{0}c_y\\
+^{0}a_z & ^{0}b_z & ^{0}c_z\\
+\end{bmatrix} \right) = \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
 0 & 0 & 1
@@ -28,16 +32,28 @@ $$ \begin{bmatrix}
 ## Installation
 インストール方法は以下の通り。
 
-```bash
-pip install git+https://github.com/IT2729/robosys2024/FKmanipulator.py.git
+### With pip
+
+```
+pip install git+https://github.com/IT2729/robosys2024
+```
+
+### With git clone
+
+```
+git clone https://github.com/IT2729/robosys2024.git
+mv robosys2024/FKmanipulator.py < 任意の移動先ディレクトリ >
 ```
 
 ## Usage
 実行方法は以下の通り。
 
-```python
+プログラムがあるディレクトリで
+
+```
 python FKmanipulator.py
 ```
+を入力する。
 
 あとは案内に従って、
 
@@ -47,9 +63,21 @@ python FKmanipulator.py
 
 を入力するだけ。
 
+ただし(n)P(n + 1)表記は、根本からマニピュレータの間接を数えたときのn番目の間接から見たn + 1番目の間接の位置ベクトル。
+
+また0P1表記は根本(原点)からみた1番目の間接の位置ベクトルで、(n)Pr表記は最後の間接からみた先端の位置ベクトル。
+
+θ(n)表記は根本からマニピュレータの間接を数えたときのn番目の間接の回転角度で、角度はradianではなくdegreeで入力。
+
+l(n)表記は(n)P(n + 1)に座標変換行列を掛けたリンクベクトル。
+
 - 実行例
 
+<<<<<<< HEAD
 ```
+=======
+```ansi
+>>>>>>> main
 $ python FKmanipulator.py
 自由度を入力してください:3
 0P1のx成分を入力してください:0
@@ -128,13 +156,42 @@ z =
 [0.0 1.00000000000000 2.00000000000000 2.70710678118655 2.00000000000000]
 グラフを表示しますか？[y/n]:y
 ```
+<div align="center">
+  <div class="the gragh ploted by the execution example">
+    <img src="https://i.imgur.com/D3gs2G2.png"\>
+    <p>実行例で生成されたグラフ</p>
+  </div>
+</div>
 
-<img src="https://i.imgur.com/D3gs2G2.png" alt="the ploted graph of the execution example">
+## About GitHub Actions
+- <a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">ubuntu-latest</a>
+<table width="800">
+  <thead>
+    <tr>
+      <th scope="col">Purpose</th>
+      <th scope="col">OS</th>
+      <th scope="col">Language</th>
+      <th scope="col">Language Ver.</th>
+      <th scope="col">Checkout Ver.</th>
+      <th scope="col">Running Program</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="16.5%">For testing</td>
+      <td width="28.5%">Ubuntu latest ver.<br>(Now ver. 22.04.5 LTS)</td>
+      <td width="10%">Python</td>
+      <td width="12,5%">3.6~3.12</td>
+      <td width="12.5%">v4</td>
+      <td width="20%"><a href="https://github.com/IT2729/robosys2024/blob/main/test/test_FKmanipulator.bash">test_FKmnaipulator.bash</a></td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Reference
-1. 3Dグラフの作成【matplotlib】( https://liquids.dev/articles/017df634-6a8e-47e0-b0af-6a3fb8bd5790 )
-2. matplotlibで3次元プロットする際に3軸のスケールを揃える ( https://qiita.com/ae14watanabe/items/71f678755525d8088849 )
-
+- <a href="https://liquids.dev/articles/017df634-6a8e-47e0-b0af-6a3fb8bd5790">3Dグラフの作成【matplotlib】</a>
+- <a href="https://qiita.com/ae14watanabe/items/71f678755525d8088849">matplotlibで3次元プロットする際に3軸のスケールを揃える</a>
 
 ## License
 
