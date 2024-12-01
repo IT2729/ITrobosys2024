@@ -5,11 +5,66 @@ import numpy as np
 import sympy as sy
 import math
 
-input_list = np.empty(0)
+input_list = np.empty(0)  # リスト生成用空行列
 
+# 標準入力からデータを取得
 for line in sys.stdin:
-    line = line.strip()
-    input1 = line.split(' ')
-    input_list = np.append(input_list, input1)
+    line = line.strip()  # 改行を削除
+    input1 = line.split(' ')  # echoコマンドなど横並び入力用に半角スペース区切りで行列を作成
+    input_list = np.append(input_list, input1)  # 取得したデータをinput_listの末尾に入れてリスト化
 
-print(input_list)
+
+DOF = int(input_list[0])  # 自由度を取得
+j = 1
+
+
+# リストから位置ベクトルと座標変換行列を生成
+# まず最後の関節から先端までの位置ベクトル以外
+for i in range(1, DOF + 1):
+    # 位置ベクトルを生成
+    vector_p_x = float(input_list[j])  # リストから位置ベクトルのx成分に該当する箇所を抽出
+    j += 1
+
+    vector_p_y = float(input_list[j])  # リストから位置ベクトルのy生成に該当する箇所を抽出
+    j += 1
+
+    vector_p_z = float(input_list[j])  # リストから位置ベクトルのz成分に該当する箇所を抽出
+    j += 1
+
+    # x,y,z成分から位置ベクトルを生成
+    exec(f"p{str(i)} = sy.Matrix(\
+            [[vector_p_x],\
+            [vector_p_y],\
+            [vector_p_z]]\
+            )"
+         )
+
+
+    # 座標変換行列を生成
+    exec(f"theta{str(i)} = sy.symbols('theta{str(i)}')")  # 関節の回転角度の変数thetaを定義
+    # 回転軸ベクトルがx方向の場合
+    if input_list[j] == str("x"):
+        exec(f"r{str(i)} = sy.Matrix(\
+                [[1, 0, 0],\
+                [0, sy.cos(theta{str(i)}), - sy.sin(theta{str(i)})],\
+                [0, sy.sin(theta{str(i)}), sy.cos(theta{str(i)})]]\
+                )"
+             )
+    # 回転軸ベクトルがy方向の場合
+    elif input_list[j] == str("y"):
+        exec(f"r{str(i)} = sy.Matrix(\
+                [[sy.cos(theta{str(i)}), 0, sy.sin(theta{str(i)})],\
+                [0, 1, 0],\
+                [- sy.sin(theta{str(i)}), 0, sy.cos(theta{str(i)})]]\
+                )"
+             )
+    # 回転軸ベクトルがz方向の場合
+    elif input_list[j] == str("z"):
+        exec(f"r{str(i)} = sy.Matrix(\
+                [[sy.cos(theta{str(i)}), - sy.sin(theta{str(i)}), 0],\
+                [sy.sin(theta{str(i)}), sy.cos(theta{str(i)}), 0],\
+                [0, 0, 1]]\
+                )"
+             )
+    j += 1
+
