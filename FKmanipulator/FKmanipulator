@@ -108,7 +108,30 @@ for j in range(0, DOF + 1):
     exec(f"A += l{str(j)}")  # それぞれのリンクベクトルの合計し順運動学解を導出
 
 oPr = A
-oPr_np = sy.matrix2numpy(oPr)
+oPr_np = sy.matrix2numpy(oPr)  # printの可読性のためsympyからnumpyに変換
 
 print(oPr_np)
 
+
+# 有顔ベクトルの初期値を定義
+a = sy.Matrix([[1], [0], [0]])
+b = sy.Matrix([[0], [1], [0]])
+c = sy.Matrix([[0], [0], [1]])
+
+# 座標変換後の有顔ベクトルを導出
+p = DOF
+while p >= 0:
+    exec(f"a = r{str(p)} * a")
+    exec(f"b = r{str(p)} * b")
+    exec(f"c = r{str(p)} * c")
+    p -= 1
+
+np_a = sy.matrix2numpy(a)
+np_b = sy.matrix2numpy(b)
+np_c = sy.matrix2numpy(c)
+
+ab = np.append(a, b, axis=1)
+abc = np.append(ab, c, axis=1)
+
+print(abc)
+    
