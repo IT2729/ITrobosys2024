@@ -5,6 +5,7 @@ import numpy as np
 import sympy as sy
 import math
 
+
 input_list = np.empty(0)  # リスト生成用空行列
 
 # 標準入力からデータを取得
@@ -16,7 +17,7 @@ for line in sys.stdin:
     input_list = np.append(input_list, input1)  # 取得したデータをinput_listの末尾に入れてリスト化
 
 
-mode = int(input_list[0])
+mode = int(input_list[0])  # モードを取得
 DOF = int(input_list[1])  # 自由度を取得
 element_num = 2  # リストの要素抽出用変数
 
@@ -46,7 +47,7 @@ for i in range(1, DOF + 1):
     # 座標変換行列を生成
     exec(f"theta{str(i)} = sy.symbols('theta{str(i)}')")  # 関節の回転角度の変数thetaを定義
     # 回転軸ベクトルがx方向の場合
-    if input_list[element_num] == str("x"):
+    if input_list[element_num] == str("x") or input_list[element_num] == str("X"):
         exec(f"r{str(i)} = sy.Matrix(\
                 [[1, 0, 0],\
                 [0, sy.cos(theta{str(i)}), - sy.sin(theta{str(i)})],\
@@ -55,7 +56,7 @@ for i in range(1, DOF + 1):
              )
 
     # 回転軸ベクトルがy方向の場合
-    elif input_list[element_num] == str("y"):
+    elif input_list[element_num] == str("y") or input_list[element_num] == str("Y"):
         exec(f"r{str(i)} = sy.Matrix(\
                 [[sy.cos(theta{str(i)}), 0, sy.sin(theta{str(i)})],\
                 [0, 1, 0],\
@@ -64,7 +65,7 @@ for i in range(1, DOF + 1):
              )
 
     # 回転軸ベクトルがz方向の場合
-    elif input_list[element_num] == str("z"):
+    elif input_list[element_num] == str("z") or input_list[element_num] == str("Z"):
         exec(f"r{str(i)} = sy.Matrix(\
                 [[sy.cos(theta{str(i)}), - sy.sin(theta{str(i)}), 0],\
                 [sy.sin(theta{str(i)}), sy.cos(theta{str(i)}), 0],\
@@ -186,6 +187,7 @@ elif mode == 4:
         exec(f"y = np.append(y, ol{str(m)}[1])")
         exec(f"z = np.append(z, ol{str(m)}[2])")
 
+    # コード生成のためにリストを文字列化
     x_str = np.array2string(x, separator=', ')
     y_str = np.array2string(y, separator=', ')
     z_str = np.array2string(z, separator=', ')
@@ -220,13 +222,15 @@ elif mode == 4:
     c_y_str = np.array2string(c_y, separator=', ')
     c_z_str = np.array2string(c_z, separator=', ')
 
-    
+    # グラフを描画するコードを生成
     program = "#!/usr/bin/python3\n\
 import numpy as np\n\
 import matplotlib.pyplot as plt\n\n\n\
+# マニピュレータ再現折れ線グラフの座標\n\
 x = " + str(x_str) + "\n\
 y = " + str(y_str) + "\n\
 z = " + str(z_str) + "\n\
+# 有顔ベクトルの根本と先端の座標\n\
 a_x = " + str(a_x_str) + "\n\
 a_y = " + str(a_y_str) + "\n\
 a_z = " + str(a_z_str) + "\n\
@@ -268,6 +272,7 @@ elif abs(z_Min) > abs(z_Max):\n\
     ax.set_zlim(z_Max - 2 * Range, z_Max)\n\
 else:\n\
     ax.set_zlim(z_Min, z_Min + 2 * Range)\n\n\
+# 描画するグラフの設定\n\
 ax.plot(x_axis[0], x_axis[1], x_axis[2], label='x', color='#8b0000')\n\
 ax.plot(y_axis[0], y_axis[1], y_axis[2], label='y', color='#006400')\n\
 ax.plot(z_axis[0], z_axis[1], z_axis[2], label='z', color='#00008b')\n\
@@ -278,4 +283,6 @@ ax.plot(c_x, c_y, c_z, color='blue')\n\n\
 ax.set_box_aspect((1, 1, 1))\n\
 ax.legend()\n\n\
 plt.show()"
+    
+    # コードを出力
     print(program)
