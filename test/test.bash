@@ -126,14 +126,14 @@ plt.show()" ] || error
 # 正常な入力を試す2
 # モード1(test5)
 t_num=5
-out=$(echo 1 3 0 1 0 y 0 1 0 z 0 1 0 x 0 1 0 | python FKmanipulator/FKmanipulator)
+out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input1.txt)
 [ "${out}" = "[[1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]]" ] || error
 
 # モード2(test6)
 t_num=6
-out=$(echo 2 3 0 1 0 y 0 1 0 z 0 1 0 x 0 1 0 | python FKmanipulator/FKmanipulator)
+out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input2.txt)
 [ "${out}" = "[[1.0*cos(theta1)*cos(theta2)
   1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3)
   1.0*sin(theta1)*cos(theta3) + 1.0*sin(theta2)*sin(theta3)*cos(theta1)]
@@ -145,7 +145,7 @@ out=$(echo 2 3 0 1 0 y 0 1 0 z 0 1 0 x 0 1 0 | python FKmanipulator/FKmanipulato
 
 # モード3(test7)
 t_num=7
-out=$(echo 3 3 0 1 0 y 0 1 0 z 0 1 0 x 0 1 0 | python FKmanipulator/FKmanipulator)
+out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input3.txt)
 [ "${out}" = "順運動学解は: 0Pr =
 [[1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
@@ -162,7 +162,7 @@ out=$(echo 3 3 0 1 0 y 0 1 0 z 0 1 0 x 0 1 0 | python FKmanipulator/FKmanipulato
 
 # モード4(test8)
 t_num=8
-out=$(echo 4 3 0 1 0 y 0 1 0 z 0 1 0 x 0 1 0 30 45 90 | python FKmanipulator/FKmanipulator)
+out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input4.txt)
 [ "$out" = "#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
@@ -175,8 +175,8 @@ y = [0.0, 1.00000000000000, 2.00000000000000, 2.70710678118655,
 z = [0.0, 0, 0, 0.353553390593274, 1.21957879437771]
 # 有顔ベクトルの根本と先端の座標
 a_x = [-0.112372435695795, 0.500000000000000]
-a_y = [2.70710678118655, 3.41421356237309]
-a_z = [1.21957879437771, 0.866025403784439]
+a_y = [2.70710678118655, 3.41421356237310]
+a_z = [1.21957879437771, 0.866025403784438]
 b_x = [-0.112372435695795, 0.387627564304205]
 b_y = [2.70710678118655, 2.70710678118655]
 b_z = [1.21957879437771, 2.08560419816215]
