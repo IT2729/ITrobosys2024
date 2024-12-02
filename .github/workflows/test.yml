@@ -13,5 +13,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Set up and test with Python
         run: |
+          sudo apt install python3-venv
+          python3 -m venv venv
+          source venv/bin/activate
           pip install numpy sympy
           bash -xv ./test/test_FKmanipulator.bash
