@@ -1,10 +1,34 @@
 #!/bin/bash
 
+cd ~/robosys/robosys2024
+
+error () {
+	echo AN ERROR HAS OCCURRED IN TEST$t_num
+	res=1
+	}
+
+
 # 正常な入力を試す1
-# モード1
-# モード2
-# モード3
-# モード4
+# モード1(test1)
+t_num=1
+out=$(echo 1 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python FKmanipulator/FKmanipulator)
+[ "${out}" = "[[1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
+ [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
+ [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]]" ] || error
+
+# モード2(test2)
+t_num=2
+out=$(echo 2 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python FKmanipulator/FKmanipulator)
+[ "${out}" = "[[1.0*cos(theta2)*cos(theta3) -1.0*sin(theta3)*cos(theta2)
+  1.0*sin(theta2)]
+ [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)
+  -1.0*sin(theta1)*sin(theta2)*sin(theta3) + 1.0*cos(theta1)*cos(theta3)
+  -1.0*sin(theta1)*cos(theta2)]
+ [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3)
+  1.0*sin(theta1)*cos(theta3) + 1.0*sin(theta2)*sin(theta3)*cos(theta1)
+  1.0*cos(theta1)*cos(theta2)]]" ] || error
+# モード3(test3)
+# モード4(test4)
 
 # 正常な入力を試す2
 # モード1
