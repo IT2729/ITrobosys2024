@@ -1,4 +1,7 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2024 Itsuki Terasawa
+# SPDX-License-Identifier: BSD-3-Clause
+
 
 error () {
 	echo AN ERROR HAS OCCURRED IN TEST$t_num
