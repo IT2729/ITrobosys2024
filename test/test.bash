@@ -15,14 +15,14 @@ cd ~/robosys/robosys2024
 # 正常な入力を試す1
 # モード1(test1)
 t_num=1
-out=$(echo 1 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python FKmanipulator/FKmanipulator)
+out=$(echo 1 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "[[1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
  [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]]" ] || error
 
 # モード2(test2)
 t_num=2
-out=$(echo 2 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python FKmanipulator/FKmanipulator)
+out=$(echo 2 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "[[1.0*cos(theta2)*cos(theta3) -1.0*sin(theta3)*cos(theta2)
   1.0*sin(theta2)]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)
@@ -34,7 +34,7 @@ out=$(echo 2 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python FKmanipulator/FKmanipulato
 
 # モード3(test3)
 t_num=3
-out=$(echo 3 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python FKmanipulator/FKmanipulator)
+out=$(echo 3 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "順運動学解は: 0Pr =
 [[1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
@@ -51,7 +51,7 @@ out=$(echo 3 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python FKmanipulator/FKmanipulato
 
 # モード4(test4)
 t_num=4
-out=$(echo 4 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 30 45 90 | python FKmanipulator/FKmanipulator)
+out=$(echo 4 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 30 45 90 | python fkmanipulator/fkmanipulator)
 [ "$out" = "#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
@@ -130,14 +130,14 @@ plt.show()" ] || error
 # txtファイルからモード番号+3 0 1 0 Y 0 1 0 Z 0 1 0 X 0 1 0 (390 405 450)を横並びで入力
 # モード1(test5)
 t_num=5
-out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input1.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input1.txt)
 [ "${out}" = "[[1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]]" ] || error
 
 # モード2(test6)
 t_num=6
-out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input2.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input2.txt)
 [ "${out}" = "[[1.0*cos(theta1)*cos(theta2)
   1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3)
   1.0*sin(theta1)*cos(theta3) + 1.0*sin(theta2)*sin(theta3)*cos(theta1)]
@@ -149,7 +149,7 @@ out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input2.txt)
 
 # モード3(test7)
 t_num=7
-out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input3.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input3.txt)
 [ "${out}" = "順運動学解は: 0Pr =
 [[1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
@@ -166,7 +166,7 @@ out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input3.txt)
 
 # モード4(test8)
 t_num=8
-out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input4.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input4.txt)
 [ "$out" = "#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
@@ -245,14 +245,14 @@ plt.show()" ] || error
 # txtファイルからモード番号+3 0 0 1 z 0 0 1 x 0 0 1 y 0 0 1 (30 45 90)を縦並びで入力
 # モード1(test9)
 t_num=9
-out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input5.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input5.txt)
 [ "${out}" = "[[1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
  [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]]" ] || error
 
 # モード2(test10)
 t_num=10
-out=$( python FKmanipulator/FKmanipulator < test/test_input_text/test_input6.txt)
+out=$( python fkmanipulator/fkmanipulator < test/test_input_text/test_input6.txt)
 [ "${out}" = "[[-1.0*sin(theta1)*sin(theta2)*sin(theta3) + 1.0*cos(theta1)*cos(theta3)
   -1.0*sin(theta1)*cos(theta2)
   1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)]
@@ -264,7 +264,7 @@ out=$( python FKmanipulator/FKmanipulator < test/test_input_text/test_input6.txt
 
 # モード3(test11)
 t_num=11
-out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input7.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input7.txt)
 [ "${out}" = "順運動学解は: 0Pr =
 [[1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
  [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
@@ -281,7 +281,7 @@ out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input7.txt)
 
 # モード4(test12)
 t_num=12
-out=$(python FKmanipulator/FKmanipulator < test/test_input_text/test_input8.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input8.txt)
 [ "$out" = "#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
@@ -359,14 +359,14 @@ plt.show()" ] || error
 # 正常な入力を試す4
 # モード1(test13)
 t_num=13
-out=$(echo 1 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python FKmanipulator/FKmanipulator)
+out=$(echo 1 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "[[1.0*(-100.0*sin(theta3) + 100.0*cos(theta3))*cos(theta2) + 200.0*sin(theta2) + 100.0*cos(theta2) + 100.0]
  [-1.0*(-(-100.0*sin(theta3) + 100.0*cos(theta3))*sin(theta2) + 100.0*cos(theta2))*sin(theta1) - 1.0*(-100.0*sin(theta2) + 100.0*cos(theta2))*sin(theta1) + 1.0*(100.0*sin(theta3) + 100.0*cos(theta3))*cos(theta1) - 100.0*sin(theta1) + 100.0*cos(theta1) + 100.0]
  [1.0*(-(-100.0*sin(theta3) + 100.0*cos(theta3))*sin(theta2) + 100.0*cos(theta2))*cos(theta1) + 1.0*(-100.0*sin(theta2) + 100.0*cos(theta2))*cos(theta1) + 1.0*(100.0*sin(theta3) + 100.0*cos(theta3))*sin(theta1) + 100.0*sin(theta1) + 100.0*cos(theta1)]]" ] || error
 
 # モード2(test14)
 t_num=14
-out=$(echo 2 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python FKmanipulator/FKmanipulator)
+out=$(echo 2 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "[[1.0*cos(theta2)*cos(theta3) -1.0*sin(theta3)*cos(theta2)
   1.0*sin(theta2)]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)
@@ -378,7 +378,7 @@ out=$(echo 2 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python FKmanipu
 
 # モード3(test15)
 t_num=15
-out=$(echo 3 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python FKmanipulator/FKmanipulator)
+out=$(echo 3 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "順運動学解は: 0Pr =
 [[1.0*(-100.0*sin(theta3) + 100.0*cos(theta3))*cos(theta2) + 200.0*sin(theta2) + 100.0*cos(theta2) + 100.0]
  [-1.0*(-(-100.0*sin(theta3) + 100.0*cos(theta3))*sin(theta2) + 100.0*cos(theta2))*sin(theta1) - 1.0*(-100.0*sin(theta2) + 100.0*cos(theta2))*sin(theta1) + 1.0*(100.0*sin(theta3) + 100.0*cos(theta3))*cos(theta1) - 100.0*sin(theta1) + 100.0*cos(theta1) + 100.0]
@@ -395,7 +395,7 @@ out=$(echo 3 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python FKmanipu
 
 # モード4(test16)
 t_num=16
-out=$(echo 4 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 -330 -315 -270 | python FKmanipulator/FKmanipulator)
+out=$(echo 4 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 -330 -315 -270 | python fkmanipulator/fkmanipulator)
 [ "$out" = "#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
@@ -474,14 +474,14 @@ plt.show()" ] || error
 # 正常な入力を試す5
 # モード1(test17)
 t_num=17
-out=$(echo 1 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python FKmanipulator/FKmanipulator)
+out=$(echo 1 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "[[1.0*(100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta2) - 200.0*sin(theta2) - 100.0*cos(theta2) - 100.0]
  [-1.0*(-(100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta2) - 100.0*cos(theta2))*sin(theta1) - 1.0*(100.0*sin(theta2) - 100.0*cos(theta2))*sin(theta1) + 1.0*(-100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta1) + 100.0*sin(theta1) - 100.0*cos(theta1) - 100.0]
  [1.0*(-(100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta2) - 100.0*cos(theta2))*cos(theta1) + 1.0*(100.0*sin(theta2) - 100.0*cos(theta2))*cos(theta1) + 1.0*(-100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta1) - 100.0*sin(theta1) - 100.0*cos(theta1)]]" ] || error
 
 # モード2(test18)
 t_num=18
-out=$(echo 2 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python FKmanipulator/FKmanipulator)
+out=$(echo 2 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "[[1.0*cos(theta2)*cos(theta3) -1.0*sin(theta3)*cos(theta2)
   1.0*sin(theta2)]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)
@@ -493,7 +493,7 @@ out=$(echo 2 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python
 
 # モード3(test19)
 t_num=19
-out=$(echo 3 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python FKmanipulator/FKmanipulator)
+out=$(echo 3 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "順運動学解は: 0Pr =
 [[1.0*(100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta2) - 200.0*sin(theta2) - 100.0*cos(theta2) - 100.0]
  [-1.0*(-(100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta2) - 100.0*cos(theta2))*sin(theta1) - 1.0*(100.0*sin(theta2) - 100.0*cos(theta2))*sin(theta1) + 1.0*(-100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta1) + 100.0*sin(theta1) - 100.0*cos(theta1) - 100.0]
@@ -510,7 +510,7 @@ out=$(echo 3 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python
 
 # モード4(test20)
 t_num=20
-out=$(echo 4 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 -690 -675 -630 | python FKmanipulator/FKmanipulator)
+out=$(echo 4 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 -690 -675 -630 | python fkmanipulator/fkmanipulator)
 [ "$out" = "#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
@@ -589,21 +589,21 @@ plt.show()" ] || error
 # 正常な入力を試す6
 # モード1(test21)
 t_num=21
-out=$(echo 1 0 1 0 0 | python FKmanipulator/FKmanipulator)
+out=$(echo 1 0 1 0 0 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "[[1.00000000000000]
  [0]
  [0]]" ] || error
 
  # モード2(test22)
 t_num=22
-out=$(echo 2 0 1 0 0 | python FKmanipulator/FKmanipulator)
+out=$(echo 2 0 1 0 0 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "[[1.00000000000000 0 0]
  [0 1.00000000000000 0]
  [0 0 1.00000000000000]]" ] || error
 
  # モード3(test23)
 t_num=23
-out=$(echo 3 0 1 0 0 | python FKmanipulator/FKmanipulator)
+out=$(echo 3 0 1 0 0 | python fkmanipulator/fkmanipulator)
 [ "${out}" = "順運動学解は: 0Pr =
 [[1.00000000000000]
  [0]
@@ -615,7 +615,7 @@ out=$(echo 3 0 1 0 0 | python FKmanipulator/FKmanipulator)
 
 # モード4
 t_num=24
-out=$(echo 4 0 1 0 0 | python FKmanipulator/FKmanipulator)
+out=$(echo 4 0 1 0 0 | python fkmanipulator/fkmanipulator)
 [ "$out" = "#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
