@@ -102,8 +102,9 @@ exec(f"p{str(DOF + 1)} = sy.Matrix(\
 
 
 # 順運動学解を求める
+# マニピュレータの先端位置を求める
 r0 = np.eye(3)  # 原点から見た最初の関節の位置ベクトルに対する座標変換行列を定義
-A = sy.zeros(3, 1)  # 順運動学解導出用変数
+A = sy.zeros(3, 1)  # 先端位置導出用変数
 
 for j in range(0, DOF + 1):
     # 関節の位置ベクトルに座標変換行列を掛けリンクベクトルを導出
@@ -114,7 +115,7 @@ for j in range(0, DOF + 1):
         k -= 1
     exec(f"l{str(j)} = B")
     
-    exec(f"A += l{str(j)}")  # それぞれのリンクベクトルを合計し順運動学解を導出
+    exec(f"A += l{str(j)}")  # それぞれのリンクベクトルを合計し先端位置を導出
 
 oPr = A
 oPr_np = sy.matrix2numpy(oPr)  # printの可読性のためsympyからnumpyに変換
@@ -144,7 +145,7 @@ abc = np.append(ab, c, axis=1)
 # モードごとの処理を選択
 # モード1の場合
 if mode == 1:
-    print(oPr_np)  # 順運動学解を出力
+    print(oPr_np)  # 先端位置を出力
 
 # モード2の場合
 elif mode == 2:
@@ -152,8 +153,8 @@ elif mode == 2:
 
 # モード3の場合
 elif mode == 3:
-    # 順運動学解と有顔ベクトルを出力
-    print("順運動学解は: 0Pr =\n{}\n有顔ベクトルは: [a b c] =\n{}".format(oPr_np, abc))
+    # 順運動学解を出力
+    print("先端位置は: 0Pr =\n{}\n有顔ベクトルは: [a b c] =\n{}".format(oPr_np, abc))
 
 # モード4の場合
 elif mode == 4:
