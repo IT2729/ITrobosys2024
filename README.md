@@ -1,4 +1,3 @@
-\usepackage{amsmath}
 # robosys2024
 ロボットシステム学の講義用に製作
 
