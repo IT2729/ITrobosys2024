@@ -121,7 +121,7 @@ oPr = A
 oPr_np = sy.matrix2numpy(oPr)  # printの可読性のためsympyからnumpyに変換
 
 
-# 有顔ベクトルの初期値を定義
+# 基準姿勢時の有顔ベクトルを定義
 a = sy.Matrix([[1], [0], [0]])
 b = sy.Matrix([[0], [1], [0]])
 c = sy.Matrix([[0], [0], [1]])
