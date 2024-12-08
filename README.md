@@ -289,7 +289,7 @@ plt.show()
 <div align="center">
   <div class="the gragh ploted by the execution example">
     <img src="https://i.imgur.com/SM4jbvp.png"\>
-    <p>実行例で生成されたグラフ(黄: マニピュレータ再現部分, 赤: 有顔ベクトル $\mathrm{a}$ , 緑: 有顔ベクトル $\mathrm{b}$ , 青: 有顔ベクトル $\mathrm{c}$ </p>
+    <p>実行例で生成されたグラフ<br>(黄: マニピュレータ再現部分, 赤: 有顔ベクトル $\mathrm{a}$ , 緑: 有顔ベクトル $\mathrm{b}$ , 青: 有顔ベクトル $\mathrm{c}$ ) </p>
   </div>
 </div>
 
