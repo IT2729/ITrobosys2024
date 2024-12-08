@@ -36,11 +36,11 @@ $$
 は
 
 $$ \begin{bmatrix}
-^0\mathrm{a} & ^0\mathrm{b} & ^0\mathrm{c}
+\hat{\mathrm{a}} & \hat{\mathrm{b}} & \hat{\mathrm{c}}
 \end{bmatrix} \left( = \begin{bmatrix}
-^0a_x & ^0b_x & ^0c_x\\
-^0a_y & ^0b_y & ^0c_y\\
-^0a_z & ^0b_z & ^0c_z\\
+\hat{a}_x & \hat{b}_x & \hat{c}_x\\
+\hat{a}_y & \hat{b}_y & \hat{c}_y\\
+\hat{a}_z & \hat{b}_z & \hat{c}_z\\
 \end{bmatrix} \right) = \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
