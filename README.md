@@ -20,7 +20,7 @@
 
 $$
 \begin{aligned}
-\mathrm{P} _ r  =  ^0\mathrm{P} _ 1  +  \mathrm{R} _ 1  (  ^{1}\mathrm{P} _ 2  +  \mathrm{R} _ 2  (  ...  +  \mathrm{R} _ i  (  ^i\mathrm{P} _ {i+1}  +  ...  \mathrm{R} _ {n-1}  (  ^{n-1}\mathrm{P} _ n  +  \mathrm{R} _ n  ^{n}\mathrm{P} _ r )
+\mathrm{P} _ r \ = \ ^0\mathrm{P} _ 1 \ + \ \mathrm{R} _ 1 \ ( \ ^{1}\mathrm{P} _ 2 \ + \ \mathrm{R} _ 2 \ ( \ ... \ + \ \mathrm{R} _ i \ ( \ ^i\mathrm{P} _ {i+1} \ + \ ... \ \mathrm{R} _ {n-1} \ ( \ ^{n-1}\mathrm{P} _ n \ + \ \mathrm{R} _ n \ ^{n}\mathrm{P} _ r )
 \end{aligned}
 $$
 
