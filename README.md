@@ -85,7 +85,7 @@ mv robosys2024/fkmanipulator/fkmanipukator <任意の移動先ディレクトリ
 ## Usage
 実行方法は以下の3通り。
 - そのまま実行する。
-<p class="indent">
+<p style"text-indent:1em;">
 プログラムのあるディレクトリで
 
 ```
