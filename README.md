@@ -27,15 +27,15 @@ $$
 
 で導出される。
 
-有顔ベクトルの初期値 $\hat{\mathstruct {\mathrm{a}}}$　、 $\hat{\mathrm{b}}$ 、 $\hat{\mathrm{c}}$ は
+有顔ベクトルの初期値 $\hat{\mathrm{a}}$　、 $\hat{\mathrm{b}}$ 、 $\hat{\mathrm{c}}$ は
 
 $$
 \begin{bmatrix}
-\hat{\vphantom{b}{\mathrm{a}}} & \hat{\mathrm{b}} & \hat{\vphantom{b}{\mathrm{c}}}
+\hat{\mathrm{a}} & \hat{\mathrm{b}} & \hat{\mathrm{c}}
 \end{bmatrix} \left( = \begin{bmatrix}
-\hat{\vphantom{b}{a}}_x & \hat{b}_x & \hat{vphantom{b}{c}}_x\\
-\hat{\vphantom{b}{a}}_y & \hat{b}_y & \hat{vphantom{b}{c}}_y\\
-\hat{\vphantom{b}{a}}_z & \hat{b}_z & \hat{vphantom{b}{c}}_z\\
+\hat{a}_x & \hat{b}_x & \hat{c}_x\\
+\hat{a}_y & \hat{b}_y & \hat{c}_y\\
+\hat{a}_z & \hat{b}_z & \hat{c}_z\\
 \end{bmatrix} \right) = \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
@@ -49,7 +49,7 @@ $$
 \begin{bmatrix}
 \mathrm{a} & \mathrm{b} & \mathrm{c}
 \end{bmatrix} = \ ^0\mathrm{R} _ n \ \begin{bmatrix}
-\hat{\vphantom{b}{\mathrm{a}}} & \hat{\mathrm{b}} & \hat{\vphantom{b}{\mathrm{c}}}
+\hat{\mathrm{a}} & \hat{\mathrm{b}} & \hat{\mathrm{c}}
 \end{bmatrix}
 $$
 
