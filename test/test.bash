@@ -1015,7 +1015,7 @@ out=$(echo 1 mode=1 1 0 0 | python fkmanipulator/fkmanipulator)
 
 # 何も入力しない(test63)
 t_num=63
-out=$(echo 1  1 0 0 | python fkmanipulator/fkmanipulator)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input14.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1103,14 +1103,14 @@ out=$(echo 1 1 = 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
 # 文字と記号と数字の混合の入力1(test77)
 # ord('a')を入力
 t_num=77
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input14.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input15.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
 # 文字と記号と数字の混合の入力1(test78)
 # print("hoge")を入力
 t_num=78
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input15.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input16.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1122,7 +1122,7 @@ out=$(echo 1 1 mode=1 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
 
 # 何も入力しない(test80)
 t_num=80
-out=$(echo 1 1  0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input17.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1208,14 +1208,14 @@ out=$(echo 1 1 0 = 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
 # 文字と記号と数字の混合の入力1(test94)
 # ord('a')を入力
 t_num=94
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input16.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input18.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
 # 文字と記号と数字の混合の入力1(test95)
 # print("hoge")を入力
 t_num=95
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input17.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input19.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1227,7 +1227,7 @@ out=$(echo 1 1 0 mode=1 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
 
 # 何も入力しない(test97)
 t_num=97
-out=$(echo 1 1 0  0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input20.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1313,14 +1313,14 @@ out=$(echo 1 1 0 0 = x 1 0 0 | python fkmanipulator/fkmanipulator)
 # 文字と記号と数字の混合の入力1(test111)
 # ord('a')を入力
 t_num=111
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input18.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input21.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
 # 文字と記号と数字の混合の入力1(test112)
 # print("hoge")を入力
 t_num=112
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input19.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input22.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1332,7 +1332,7 @@ out=$(echo 1 1 0 0 mode=1 x 1 0 0 | python fkmanipulator/fkmanipulator)
 
 # 何も入力しない(test114)
 t_num=114
-out=$(echo 1 1 0 0  x 1 0 0 | python fkmanipulator/fkmanipulator)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input23.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1427,14 +1427,14 @@ out=$(echo 1 0 = 0 0 | python fkmanipulator/fkmanipulator)
 # 文字と記号と数字の混合の入力1(test77)
 # ord('a')を入力
 t_num=77
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input22.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input27.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
 # 文字と記号と数字の混合の入力1(test78)
 # print("hoge")を入力
 t_num=78
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input23.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input28.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1446,7 +1446,7 @@ out=$(echo 1 0 mode=1 0 0 | python fkmanipulator/fkmanipulator)
 
 # 何も入力しない(test80)
 t_num=80
-out=$(echo 1 0  0 0 | python fkmanipulator/fkmanipulator)
+out=$(python fkmanipulator/fkmanipulator | test/test_input_text/test_input29.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1532,14 +1532,14 @@ out=$(echo 1 0 0 = 0 | python fkmanipulator/fkmanipulator)
 # 文字と記号と数字の混合の入力1(test94)
 # ord('a')を入力
 t_num=94
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input24.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input30.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
 # 文字と記号と数字の混合の入力1(test95)
 # print("hoge")を入力
 t_num=95
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input25.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input31.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1551,7 +1551,7 @@ out=$(echo 1 0 0 mode=1 0 | python fkmanipulator/fkmanipulator)
 
 # 何も入力しない(test97)
 t_num=97
-out=$(echo 1 0 0  0 | python fkmanipulator/fkmanipulator)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input32.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1637,14 +1637,14 @@ out=$(echo 1 0 0 0 = | python fkmanipulator/fkmanipulator)
 # 文字と記号と数字の混合の入力1(test111)
 # ord('a')を入力
 t_num=111
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input26.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input33.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
 # 文字と記号と数字の混合の入力1(test112)
 # print("hoge")を入力
 t_num=112
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input27.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input34.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1656,7 +1656,7 @@ out=$(echo 1 0 0 0 mode=1 | python fkmanipulator/fkmanipulator)
 
 # 何も入力しない(test114)
 t_num=114
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input28.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input35.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
