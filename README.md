@@ -84,7 +84,7 @@ mv robosys2024/fkmanipulator/fkmanipukator <任意の移動先ディレクトリ
 
 ## Usage
 実行方法は以下の3通り。
-### そのまま実行する。
+### Standard
 プログラムのあるディレクトリで
 
 ```
@@ -112,7 +112,7 @@ $^n\mathrm{P} _ r$ の $x$ 成分の値→
 $^n\mathrm{P} _ r$ の $y$ 成分の値→ 
 $^n\mathrm{P} _ r$ の $z$ 成分の値
 
-の順で改行または空白区切りで入力。 $^i\mathrm{P} _ {i+1}$ と $\hat{\mathrm{s} _ i}$ についての定義とモード番号についてはDescriptionを参照のこと。 $\hat{\mathrm{s}} _ i$ の方向は $x$ 軸方向まわりの回転なら $"x"$ 、 $y$ 軸方向まわりの回転なら $"y"$ 、 $z$ 軸まわりの回転なら $"z"$ を入力。モード番号はコンマなしで入力。
+の順で改行または空白区切りで入力。 $^i\mathrm{P} _ {i+1}$ と $\hat{\mathrm{s} _ i}$ についての定義とモード番号についてはDescriptionを参照のこと。 $\hat{\mathrm{s}} _ i$ の方向は $x$ 軸方向まわりの回転なら $"x"$ 、 $y$ 軸方向まわりの回転なら $"y"$ 、 $z$ 軸まわりの回転なら $"z"$ を入力。モード番号はコンマなしで入力。何も入力せず改行で入力を終了できる。
 
 また、モード4の場合は最後の入力の後に
 
@@ -123,9 +123,167 @@ $\theta _ n$ の値
 
 の順で改行または空白区切りで入力。 $\theta _ i$ についてもDescriptionを参照のこと。 $\theta _ i$ はdegreeで入力。
 
+モード4で出力されたコードは、リダイレクトでpyファイルに出力するかpyファイルにコピーペーストするかして、
 
-### パイプで入力を繋げて実行する。
-### リダイレクトで入力を繋げて実行する。
+```
+python <任意のファイル名>.py
+```
+
+で実行するとグラフが描画される。
+
+### With Redirecting
+txtファイルなどからリダイレクトで入力。
+
+```
+python fkmanipulator < <任意のファイル名>.txt
+```
+
+入力する順番はStandardと同じ。ファイルの中身は改行区切り(縦並び)でも空白区切り(横並び)でも可。
+
+### With Piping
+echoコマンドなどの出力をパイプで繋げて実行。
+
+```
+echo <任意の入力データ> | python fkmanipulator
+```
+
+入力する順番はStandardと同じ。
+
+- Usage Example 1 (Standard: モード1)
+```
+$ python fkmanipulator
+1
+3
+1
+0
+0
+x
+1
+0
+0
+y
+1
+0
+0
+z
+1
+0
+0
+
+[[1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
+ [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
+ [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]]
+```
+
+- Usage Example 2 (With Redirecting: モード2)
+```
+$ python fkmanipulator < sample1.txt
+[[-1.0*sin(theta1)*sin(theta3) + 1.0*cos(theta1)*cos(theta2)*cos(theta3)
+  -1.0*sin(theta1)*cos(theta3) - 1.0*sin(theta3)*cos(theta1)*cos(theta2)
+  1.0*sin(theta2)*cos(theta1)]
+ [1.0*sin(theta1)*cos(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)
+  -1.0*sin(theta1)*sin(theta3)*cos(theta2) + 1.0*cos(theta1)*cos(theta3)
+  1.0*sin(theta1)*sin(theta2)]
+ [-1.0*sin(theta2)*cos(theta3) 1.0*sin(theta2)*sin(theta3)
+  1.0*cos(theta2)]]
+```
+
+- Usage Example 3 (With Redirecting: モード3)
+```
+$ python fkmanipulator < sample2.txt
+先端の位置ベクトルは: 0Pr =
+[[1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*cos(theta1) - 1.0*sin(theta2)*cos(theta1)]
+ [-1.0*sin(theta2)*sin(theta3) + 1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
+ [-1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*sin(theta1) + 1.0*sin(theta1)*sin(theta2)]]
+有顔ベクトルは: [a b c] =
+[[1.0*(-sin(theta2)*sin(theta3) + cos(theta2)*cos(theta3))*cos(theta1)
+  1.0*(-sin(theta2)*cos(theta3) - sin(theta3)*cos(theta2))*cos(theta1)
+  1.0*sin(theta1)]
+ [1.0*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta2)
+  -1.0*sin(theta2)*sin(theta3) + 1.0*cos(theta2)*cos(theta3) 0]
+ [-1.0*(-sin(theta2)*sin(theta3) + cos(theta2)*cos(theta3))*sin(theta1)
+  -1.0*(-sin(theta2)*cos(theta3) - sin(theta3)*cos(theta2))*sin(theta1)
+  1.0*cos(theta1)]]
+```
+
+- Usage Example 4 (With Piping: モード4)
+```
+$ echo 4 6 0 0 1 z 0 0 1 x 0 0 1 x 0 0 1 z 0 0 1 x 0 0 1 z 0 0 1 30 60 45 120 90 135 | python fkmanipulator
+#!/usr/bin/python3
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+# マニピュレータ再現折れ線グラフの座標
+x = [0.0, 0, 0, 0.433012701892219, 0.915975615036753, 1.39893852818129,
+ 2.21364328945692, 3.02834805073255]
+y = [0.0, 0, 0, -0.750000000000000, -1.58651630373781, -2.42303260747562,
+ -2.10209183960440, -1.78115107173319]
+z = [0.0, 1.00000000000000, 2.00000000000000, 2.50000000000000,
+ 2.24118095489748, 1.98236190979496, 2.46532482293949, 2.94828773608403]
+# 有顔ベクトルの根本と先端の座標
+a_x = [3.02834805073255, 3.59679379499961]
+a_y = [-1.78115107173319, -2.05862120096350]
+a_z = [2.94828773608403, 2.17376868324570]
+b_x = [3.02834805073255, 2.91378109310739]
+b_y = [-1.78115107173319, -0.875608499071280]
+b_z = [2.94828773608403, 2.53979408703014]
+c_x = [3.02834805073255, 3.84305281200818]
+c_y = [-1.78115107173319, -1.46021030386198]
+c_z = [2.94828773608403, 3.43125064922856]
+
+
+# グラフの表示範囲を決定
+# xとyの表示範囲
+Max_mat = [max(x), max(y), max(z)]
+Max_num = max(Max_mat)
+Min_mat = [min(x), min(y), min(z)]
+Min_num = min(Min_mat)
+Max = np.float16(round(Max_num + 1, 1))
+Min = np.float16(round(Min_num - 1, 1))
+if abs(Max) > abs(Min):
+    Range = abs(Max)
+elif abs(Min) > abs(Max):
+    Range = abs(Min)
+else:
+    Range = abs(Max)
+
+# zの表示範囲
+z_Max = np.float16(round(max(z)))
+z_Min = np.float16(round(min(z)))
+
+# 座標軸表示用
+x_axis = np.array([[- Range, Range], [0, 0], [0, 0]])
+y_axis = np.array([[0, 0], [- Range, Range], [0, 0]])
+z_axis = np.array([[0, 0], [0, 0], [- 2 * Range, 2 * Range]])
+
+# グラフ表示についての設定
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+
+ax.set_ylim(- Range, Range)
+ax.set_xlim(- Range, Range)
+if abs(z_Max) > abs(z_Min):
+    ax.set_zlim(z_Min, z_Min + 2 * Range)
+elif abs(z_Min) > abs(z_Max):
+    ax.set_zlim(z_Max - 2 * Range, z_Max)
+else:
+    ax.set_zlim(z_Min, z_Min + 2 * Range)
+
+# 描画するグラフの設定
+ax.plot(x_axis[0], x_axis[1], x_axis[2], label='x', color='#8b0000')
+ax.plot(y_axis[0], y_axis[1], y_axis[2], label='y', color='#006400')
+ax.plot(z_axis[0], z_axis[1], z_axis[2], label='z', color='#00008b')
+ax.plot(x, y, z, marker='o', markersize=3, color='#b8860b')
+ax.plot(a_x, a_y, a_z, color='red')
+ax.plot(b_x, b_y, b_z, color='green')
+ax.plot(c_x, c_y, c_z, color='blue')
+
+ax.set_box_aspect((1, 1, 1))
+ax.legend()
+
+plt.show()
+```
 
 
 <div align="center">
