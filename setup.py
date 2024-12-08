@@ -8,7 +8,7 @@ setup(
     license="BSD-3-Clause",
     author="Itsuki Terasawa",
     url="https://github.com/IT2729/robosys2024",
-    packages=find_packages(),
+    packages=find_packages(where="fkmanipulator"),
     python_require='>=3.6',
 )
 
