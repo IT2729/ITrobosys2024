@@ -328,7 +328,7 @@ plt.show()
       <td width="10%">Python</td>
       <td width="12,5%">3.6~3.12</td>
       <td width="12.5%">v4</td>
-      <td width="20%"><a href="https://github.com/IT2729/robosys2024/blob/main/test/test.bash">tes.bash</a></td>
+      <td width="20%"><a href="https://github.com/IT2729/robosys2024/blob/main/test/test.bash">test.bash</a></td>
     </tr>
   </tbody>
 </table>
