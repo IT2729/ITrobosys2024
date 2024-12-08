@@ -69,17 +69,9 @@ $$
 ## Installation
 インストール方法は以下の通り。
 
-### With pip
-
-```
-pip install git+https://github.com/IT2729/robosys2024
-```
-
-### With git clone
-
 ```
 git clone https://github.com/IT2729/robosys2024.git
-mv robosys2024/fkmanipulator/fkmanipukator <任意の移動先ディレクトリ>
+mv robosys2024/fkmanipulator/fkmanipulator <任意の移動先ディレクトリ>
 ```
 
 ## Usage
