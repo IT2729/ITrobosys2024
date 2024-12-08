@@ -154,7 +154,7 @@ elif mode == 2:
 # モード3の場合
 elif mode == 3:
     # 順運動学解を出力
-    print("先端位置は: 0Pr =\n{}\n有顔ベクトルは: [a b c] =\n{}".format(oPr_np, abc))
+    print("先端の位置ベクトルは: 0Pr =\n{}\n有顔ベクトルは: [a b c] =\n{}".format(oPr_np, abc))
 
 # モード4の場合
 elif mode == 4:
