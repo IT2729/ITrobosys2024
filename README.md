@@ -28,7 +28,7 @@ $$
 
 で導出される。
 
-有顔ベクトルの初期値 $\hat{\mathrm{a}}$ 、 $\hat{\mathrm{b}}$ 、 $\hat{\mathrm{c}}$ は
+有顔ベクトルの初期値 $\hat{\mathrm{a}}$ , $\hat{\mathrm{b}}$ , $\hat{\mathrm{c}}$ は
 
 $$
 \begin{bmatrix}
@@ -44,7 +44,7 @@ $$
 \end{bmatrix}
 $$
 
-となっており、変換後の有顔ベクトル $\mathrm{a}$ 、 $\mathrm{b}$ 、 $\mathrm{c}$ は
+となっており、変換後の有顔ベクトル $\mathrm{a}$ , $\mathrm{b}$ , $\mathrm{c}$ は
 
 $$
 \begin{bmatrix}
