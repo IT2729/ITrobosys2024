@@ -27,15 +27,10 @@ $$
 
 で導出される。
 
-有顔ベクトルの初期値 
+有顔ベクトルの初期値 $\hat{\mathrm{a}}$　、 $\hat{\mathrm{b}}$ 、 $\hat{\mathrm{c}}$ は
 
- $$ \begin{bmatrix}
-^0\mathrm{a} & ^0\mathrm{b} & ^0\mathrm{c}
-\end{bmatrix} $$ 
-
-は
-
-$$ \begin{bmatrix}
+$$
+\begin{bmatrix}
 \hat{\mathrm{a}} & \hat{\mathrm{b}} & \hat{\mathrm{c}}
 \end{bmatrix} \left( = \begin{bmatrix}
 \hat{a}_x & \hat{b}_x & \hat{c}_x\\
@@ -45,7 +40,18 @@ $$ \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
 0 & 0 & 1
-\end{bmatrix} $$
+\end{bmatrix}
+$$
+
+となっており、変換後の有顔ベクトル $\mathrm{a}$ 、$\mathrm{b}$ 、 $\mathrm{c}$ は
+
+$$
+\begin{bmatrix}
+\mathrm{a} & \mathrm{b} $ \mathrm{c}
+\end{bmatrix} = ^0\mathrm{R} _ n \ \begin{bmatrix}
+\hat{\mathrm{a}} & \hat{\mathrm{b}} & \hat{\mathrm{c}}
+\end{bmatrix}
+$$
 
 
 ## Requirement
