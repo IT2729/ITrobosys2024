@@ -2,7 +2,7 @@
 ロボットシステム学の講義用に製作
 
 # fkmanipulator
-<a href="https://github.com/IT2729/robosys2024/actions/workflows/test_FKmanipulator.yml"><img src="https://github.com/IT2729/robosys2024/actions/workflows/test_FKmanipulator.yml/badge.svg" alt="Test status on ubuntu-latest"></a>
+<a href="https://github.com/IT2729/robosys2024/actions/workflows/test.yml"><img src="https://github.com/IT2729/robosys2024/actions/workflows/test.yml/badge.svg" alt="Test status"></a>
 <a href="https://github.com/IT2729/robosys2024/tree/main?tab=BSD-3-Clause-1-ov-file"><img alt="GitHub License" src="https://img.shields.io/github/license/IT2729/robosys2024"></a>
 
 ## Description
@@ -90,6 +90,7 @@ mv robosys2024/fkmanipulator/fkmanipukator <任意の移動先ディレクトリ
 ```
 python fkmanipulator
 ```
+
 を入力して実行。
 
 その後、
@@ -308,7 +309,7 @@ plt.show()
 </div>
 
 ## About GitHub Actions
-- <a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">test</a>
+- <a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test.yml">test</a>
 <table width="800">
   <thead>
     <tr>
@@ -327,7 +328,7 @@ plt.show()
       <td width="10%">Python</td>
       <td width="12,5%">3.6~3.12</td>
       <td width="12.5%">v4</td>
-      <td width="20%"><a href="https://github.com/IT2729/robosys2024/blob/main/test/test_FKmanipulator.bash">test_FKmnaipulator.bash</a></td>
+      <td width="20%"><a href="https://github.com/IT2729/robosys2024/blob/main/test/test.bash">tes.bash</a></td>
     </tr>
   </tbody>
 </table>
