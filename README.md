@@ -28,9 +28,9 @@ $$
 で導出される。
 
 有顔ベクトルの初期値 
-$ \begin{bmatrix}
+ $ \begin{bmatrix}
 ^0\mathrm{a} & ^0\mathrm{b} & ^0\mathrm{c}
-\end{bmatrix} $
+\end{bmatrix} $ 
 は
 
 $$ \begin{bmatrix}
