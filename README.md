@@ -121,7 +121,7 @@ $\theta _ 2$ の値→ … →
 $\theta _ {n-1}$ の値→
 $\theta _ n$ の値
 
-の順で改行または空白区切りで入力。 $\theta _ i$ についてもDescriptionを参照のこと。 $theta _ i$ はdegreeで入力。
+の順で改行または空白区切りで入力。 $\theta _ i$ についてもDescriptionを参照のこと。 $\theta _ i$ はdegreeで入力。
 
 2. パイプで入力を繋げて実行する。
 3. リダイレクトで入力を繋げて実行する。
