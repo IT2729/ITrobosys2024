@@ -188,6 +188,13 @@ $ python fkmanipulator < sample1.txt
   1.0*cos(theta2)]]
 ```
 
+<div align="center">
+  <div class="input data of usage example 2">
+    <img src="https://i.imgur.com/xFstTM3.png"\>
+    <p>Usage Example 3で入力したtxtファイルの内容</p>
+  </div>
+</div>
+
 - Usage Example 3 (With Redirecting: モード3)
 ```
 $ python fkmanipulator < sample2.txt
@@ -205,6 +212,13 @@ $ python fkmanipulator < sample2.txt
   -1.0*(-sin(theta2)*cos(theta3) - sin(theta3)*cos(theta2))*sin(theta1)
   1.0*cos(theta1)]]
 ```
+
+<div align="center">
+  <div class="input data of usage example 3">
+    <img src="https://i.imgur.com/Y9zBO3k.png"\>
+    <p>Usage Example 2で入力したtxtファイルの内容</p>
+  </div>
+</div>
 
 - Usage Example 4 (With Piping: モード4)
 ```
@@ -287,7 +301,7 @@ plt.show()
 
 
 <div align="center">
-  <div class="the gragh ploted by the execution example">
+  <div class="the gragh ploted by an output of usage example 4">
     <img src="https://i.imgur.com/SM4jbvp.png"\>
     <p>Usage Example 4で出力されたコードを実行し描画されたグラフ<br>(黄: マニピュレータ再現部分, 赤: 有顔ベクトル $\mathrm{a}$ , 緑: 有顔ベクトル $\mathrm{b}$ , 青: 有顔ベクトル $\mathrm{c}$ ) </p>
   </div>
