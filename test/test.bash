@@ -126,7 +126,7 @@ out=$(echo 2 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python fkmanipulator/fkmanipulato
 # モード3(test3)
 t_num=3
 out=$(echo 3 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0 | python fkmanipulator/fkmanipulator)
-[ "${out}" = "順運動学解は: 0Pr =
+[ "${out}" = "先端の位置ベクトルは: 0Pr =
 [[1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
  [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]]
@@ -241,7 +241,7 @@ out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input02.txt
 # モード3(test7)
 t_num=7
 out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input03.txt)
-[ "${out}" = "順運動学解は: 0Pr =
+[ "${out}" = "先端の位置ベクトルは: 0Pr =
 [[1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]]
@@ -356,7 +356,7 @@ out=$( python fkmanipulator/fkmanipulator < test/test_input_text/test_input06.tx
 # モード3(test11)
 t_num=11
 out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input07.txt)
-[ "${out}" = "順運動学解は: 0Pr =
+[ "${out}" = "先端の位置ベクトルは: 0Pr =
 [[1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
  [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]]
@@ -470,7 +470,7 @@ out=$(echo 2 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python fkmanipu
 # モード3(test15)
 t_num=15
 out=$(echo 3 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100 | python fkmanipulator/fkmanipulator)
-[ "${out}" = "順運動学解は: 0Pr =
+[ "${out}" = "先端の位置ベクトルは: 0Pr =
 [[1.0*(-100.0*sin(theta3) + 100.0*cos(theta3))*cos(theta2) + 200.0*sin(theta2) + 100.0*cos(theta2) + 100.0]
  [-1.0*(-(-100.0*sin(theta3) + 100.0*cos(theta3))*sin(theta2) + 100.0*cos(theta2))*sin(theta1) - 1.0*(-100.0*sin(theta2) + 100.0*cos(theta2))*sin(theta1) + 1.0*(100.0*sin(theta3) + 100.0*cos(theta3))*cos(theta1) - 100.0*sin(theta1) + 100.0*cos(theta1) + 100.0]
  [1.0*(-(-100.0*sin(theta3) + 100.0*cos(theta3))*sin(theta2) + 100.0*cos(theta2))*cos(theta1) + 1.0*(-100.0*sin(theta2) + 100.0*cos(theta2))*cos(theta1) + 1.0*(100.0*sin(theta3) + 100.0*cos(theta3))*sin(theta1) + 100.0*sin(theta1) + 100.0*cos(theta1)]]
@@ -585,7 +585,7 @@ out=$(echo 2 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python
 # モード3(test19)
 t_num=19
 out=$(echo 3 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100 | python fkmanipulator/fkmanipulator)
-[ "${out}" = "順運動学解は: 0Pr =
+[ "${out}" = "先端の位置ベクトルは: 0Pr =
 [[1.0*(100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta2) - 200.0*sin(theta2) - 100.0*cos(theta2) - 100.0]
  [-1.0*(-(100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta2) - 100.0*cos(theta2))*sin(theta1) - 1.0*(100.0*sin(theta2) - 100.0*cos(theta2))*sin(theta1) + 1.0*(-100.0*sin(theta3) - 100.0*cos(theta3))*cos(theta1) + 100.0*sin(theta1) - 100.0*cos(theta1) - 100.0]
  [1.0*(-(100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta2) - 100.0*cos(theta2))*cos(theta1) + 1.0*(100.0*sin(theta2) - 100.0*cos(theta2))*cos(theta1) + 1.0*(-100.0*sin(theta3) - 100.0*cos(theta3))*sin(theta1) - 100.0*sin(theta1) - 100.0*cos(theta1)]]
@@ -695,7 +695,7 @@ out=$(echo 2 0 1 0 0 | python fkmanipulator/fkmanipulator)
  # モード3(test23)
 t_num=23
 out=$(echo 3 0 1 0 0 | python fkmanipulator/fkmanipulator)
-[ "${out}" = "順運動学解は: 0Pr =
+[ "${out}" = "先端の位置ベクトルは: 0Pr =
 [[1.00000000000000]
  [0]
  [0]]
