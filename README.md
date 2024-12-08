@@ -25,15 +25,16 @@ $$
 \end{aligned}
 $$
 
+で導出される。
 
-有顔ベクトルの初期値は
+有顔ベクトルの初期値 $\begin{bmatrix} ^0\mathrm{a} & ^0\mathrm{b} & ^0\mathrm{c} \end{bmatrix}$ は
 
 $$ \begin{bmatrix}
-^{0}\mathrm{a} & ^{0}\mathrm{b} & ^{0}\mathrm{c}
+^0\mathrm{a} & ^0\mathrm{b} & ^0\mathrm{c}
 \end{bmatrix} \left( = \begin{bmatrix}
-^{0}a_x & ^{0}b_x & ^{0}c_x\\
-^{0}a_y & ^{0}b_y & ^{0}c_y\\
-^{0}a_z & ^{0}b_z & ^{0}c_z\\
+^0a_x & ^0b_x & ^0c_x\\
+^0a_y & ^0b_y & ^0c_y\\
+^0a_z & ^0b_z & ^0c_z\\
 \end{bmatrix} \right) = \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
