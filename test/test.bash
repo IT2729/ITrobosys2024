@@ -3,6 +3,96 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 
+# テスト項目
+#正常な入力を試す
+    # 正常な入力を試す1(echo {モード番号} 3 1 0 0 x 1 0 0 y 1 0 0 z 1 0 0をパイプで入力)
+        # モード1について
+	# モード2について
+	# モード3について
+	# モード4について(角度の入力は30 45 90)
+    # 正常な入力を試す2(横並びの{モード番号} 3 0 1 0 y 0 1 0 z 0 1 0 x 0 1 0をtxtファイルからリダイレクトで入力)
+        # モード1について
+	# モード2について
+	# モード3について
+	# モード4について(角度の入力は390 405 450)
+    # 正常な入力を試す3(縦並びの{モード番号} 3 0 0 1 z 0 0 1 x 0 0 1 y 0 0 1をtxtファイルからリダイレクトで入力)
+        # モード1について
+	# モード2について
+	# モード3について
+	# モード4について(角度の入力は30 45 90)
+    # 正常な入力を試す4(echo {モード番号} 3 100 100 0 x 0 100 100 y 100 0 100 z 100 100 100をパイプで入力)
+        # モード1について
+	# モード2について
+	# モード3について
+	# モード4について(角度の入力は-330 -315 -270)
+    # 正常な入力を試す5(echo {モード番号} 3 -100 -100 0 x 0 -100 -100 y -100 0 -100 z -100 -100 -100をパイプで入力)
+        # モード1について
+	# モード2について
+	# モード3について
+	# モード4について(角度の入力は-690 -675 -630)
+    # 正常な入力を試す6(echo {モード番号} 0 1 0 0をパイプで入力)
+        # モード1について
+	# モード2について
+	# モード3について
+	# モード4について
+#異常な入力を試す
+    # モード入力について
+        # 1,2,3,4以外の数字を入力
+	# 文字を入力
+	# 記号を入力
+	# 文字と記号と数字の混合の入力
+	# 何も入力しない
+    # 自由度の入力について
+        # 負の値を入力
+	# 文字を入力
+	# 記号を入力
+	# 文字と記号と数字の混合の入力
+	# 何も入力しない
+    # 位置ベクトルの入力について
+        # x成分について
+	    # 文字の入力
+	    # 記号の入力
+	    # 文字と記号と数字の混合の入力
+	    # 何も入力しない
+        # y成分について
+	    # 文字の入力
+	    # 記号の入力
+	    # 文字と記号と数字の混合の入力
+	    # 何も入力しない
+        # z成分について
+	    # 文字の入力
+	    # 記号の入力
+	    # 文字と記号と数字の混合の入力
+	    # 何も入力しない
+    # 回転軸ベクトルの入力について
+        # x,y,z以外の文字の入力
+	# 数字の入力
+	# 記号の入力
+	# 文字と記号と数字の混合の入力
+	# 何も入力しない
+    #手先の位置ベクトルの入力について
+        # x成分について
+	    # 文字の入力
+	    # 記号の入力
+	    # 文字と記号と数字の混合の入力
+	    # 何も入力しない
+        # y成分について
+	    # 文字の入力
+	    # 記号の入力
+	    # 文字と記号と数字の混合の入力
+	    # 何も入力しない
+        # z成分について
+	    # 文字の入力
+	    # 記号の入力
+	    # 文字と記号と数字の混合の入力
+	    # 何も入力しない
+        # モード4の角度の入力について
+	    # 文字の入力
+	    # 記号の入力
+	    # 文字と記号と数字の混合の入力
+	    # 何も入力しない
+
+
 error () {
 	echo AN ERROR HAS OCCURRED IN TEST$t_num
 	res=1
@@ -12,6 +102,7 @@ res=0
 
 cd ~/robosys/robosys2024
 
+#正常な入力を試す
 # 正常な入力を試す1
 # モード1(test1)
 t_num=1
@@ -880,7 +971,7 @@ out=$(echo 1 縺 1 0 0 | python fkmanipulator/fkmanipulator)
 
 # 記号を入力1(test56)
 t_num=56
-out=$(echo 1 [ 0 1 0 0 | python fkmanipulator/fkmanipulator)
+out=$(echo 1 [ 1 0 0 | python fkmanipulator/fkmanipulator)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -928,22 +1019,323 @@ out=$(echo 1  1 0 0 | python fkmanipulator/fkmanipulator)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
+
 # 位置ベクトルの入力について
 # x成分
-# 文字の入力
-# 記号の入力
-# 文字と記号と数字の混合の入力
-# 何も入力しない
+# 文字を入力1(test64)
+t_num=64
+out=$(echo 1 1 a 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力2(test65)
+t_num=65
+out=$(echo 1 1 A 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力3(test66)
+t_num=66
+out=$(echo 1 1 cd 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力4(test67)
+t_num=67
+out=$(echo 1 1 あ 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力5(test68)
+t_num=68
+out=$(echo 1 1 ｱ 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力6(test69)
+t_num=69
+out=$(echo 1 1 亜 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力7(test70)
+t_num=70
+out=$(echo 1 1 θ 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力8(test71)
+t_num=71
+out=$(echo 1 1 å 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力9(test72)
+t_num=72
+out=$(echo 1 1 縺 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力1(test73)
+t_num=73
+out=$(echo 1 1 [ 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力2(test74)
+t_num=74
+out=$(echo 1 1 ［ 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力3(test75)
+t_num=75
+out=$(echo 1 1 + 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力4(test76)
+t_num=76
+out=$(echo 1 1 = 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test77)
+# ord('a')を入力
+t_num=77
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input14.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test78)
+# print("hoge")を入力
+t_num=78
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input15.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test79)
+t_num=79
+out=$(echo 1 1 mode=1 0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 何も入力しない(test80)
+t_num=80
+out=$(echo 1 1  0 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
 # y成分
-# 文字の入力
-# 記号の入力
-# 文字と記号と数字の混合の入力
-# 何も入力しない
+# 文字を入力1(test81)
+t_num=81
+out=$(echo 1 1 0 a 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力2(test82)
+t_num=82
+out=$(echo 1 1 0 A 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力3(test83)
+t_num=83
+out=$(echo 1 1 0 cd 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力4(test84)
+t_num=84
+out=$(echo 1 1 0 あ 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力5(test85)
+t_num=85
+out=$(echo 1 1 0 ｱ 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力6(test86)
+t_num=86
+out=$(echo 1 1 0 亜 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力7(test87)
+t_num=87
+out=$(echo 1 1 0 θ 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力8(test88)
+t_num=88
+out=$(echo 1 1 0 å 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力9(test89)
+t_num=89
+out=$(echo 1 1 0 縺 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力1(test90)
+t_num=90
+out=$(echo 1 1 0 [ 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力2(test91)
+t_num=91
+out=$(echo 1 1 0 ［ 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力3(test92)
+t_num=92
+out=$(echo 1 1 0 + 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力4(test93)
+t_num=93
+out=$(echo 1 1 0 = 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test94)
+# ord('a')を入力
+t_num=94
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input16.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test95)
+# print("hoge")を入力
+t_num=95
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input17.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test96)
+t_num=96
+out=$(echo 1 1 0 mode=1 0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 何も入力しない(test97)
+t_num=97
+out=$(echo 1 1 0  0 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
 # z成分
-# 文字の入力
-# 記号の入力
-# 文字と記号と数字の混合の入力
-# 何も入力しない
+# 文字を入力1(test98)
+t_num=98
+out=$(echo 1 1 0 0 a x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力2(test99)
+t_num=99
+out=$(echo 1 1 0 0 A x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力3(test100)
+t_num=100
+out=$(echo 1 1 0 0 cd x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力4(test101)
+t_num=101
+out=$(echo 1 1 0 0 あ x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力5(test102)
+t_num=102
+out=$(echo 1 1 0 0 ｱ x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力6(test103)
+t_num=103
+out=$(echo 1 1 0 0 亜 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力7(test104)
+t_num=104
+out=$(echo 1 1 0 0 θ x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力8(test105)
+t_num=105
+out=$(echo 1 1 0 0 å x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力9(test106)
+t_num=106
+out=$(echo 1 1 0 0 縺 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力1(test107)
+t_num=107
+out=$(echo 1 1 0 0 [ x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力2(test108)
+t_num=108
+out=$(echo 1 1 0 0 ［ x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力3(test109)
+t_num=109
+out=$(echo 1 1 0 0 + x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力4(test110)
+t_num=110
+out=$(echo 1 1 0 0 = x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test111)
+# ord('a')を入力
+t_num=111
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input18.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test112)
+# print("hoge")を入力
+t_num=112
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input19.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test113)
+t_num=113
+out=$(echo 1 1 0 0 mode=1 x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 何も入力しない(test114)
+t_num=114
+out=$(echo 1 1 0 0  x 1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
 
 # 回転軸ベクトルの向きの入力について
 # x,y,z以外の文字の入力
@@ -954,20 +1346,320 @@ out=$(echo 1  1 0 0 | python fkmanipulator/fkmanipulator)
 
 # 手先の位置ベクトルの入力について
 # x成分
-# 文字の入力
-# 記号の入力
-# 文字と記号と数字の混合の入力
-# 何も入力しない
+# 文字を入力1(test64)
+t_num=64
+out=$(echo 1 0 a 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力2(test65)
+t_num=65
+out=$(echo 1 0 A 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力3(test66)
+t_num=66
+out=$(echo 1 0 cd 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力4(test67)
+t_num=67
+out=$(echo 1 0 あ 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力5(test68)
+t_num=68
+out=$(echo 1 0 ｱ 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力6(test69)
+t_num=69
+out=$(echo 1 0 亜 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力7(test70)
+t_num=70
+out=$(echo 1 0 θ 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力8(test71)
+t_num=71
+out=$(echo 1 0 å 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力9(test72)
+t_num=72
+out=$(echo 1 0 縺 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力1(test73)
+t_num=73
+out=$(echo 1 0 [ 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力2(test74)
+t_num=74
+out=$(echo 1 0 ［ 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力3(test75)
+t_num=75
+out=$(echo 1 0 + 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力4(test76)
+t_num=76
+out=$(echo 1 0 = 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test77)
+# ord('a')を入力
+t_num=77
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input22.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test78)
+# print("hoge")を入力
+t_num=78
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input23.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test79)
+t_num=79
+out=$(echo 1 0 mode=1 0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 何も入力しない(test80)
+t_num=80
+out=$(echo 1 0  0 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
 # y成分
-# 文字の入力
-# 記号の入力
-# 文字と記号と数字の混合の入力
-# 何も入力しない
+# 文字を入力1(test81)
+t_num=81
+out=$(echo 1 0 0 a 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力2(test82)
+t_num=82
+out=$(echo 1 0 0 A 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力3(test83)
+t_num=83
+out=$(echo 1 0 0 cd 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力4(test84)
+t_num=84
+out=$(echo 1 0 0 あ 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力5(test85)
+t_num=85
+out=$(echo 1 0 0 ｱ 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力6(test86)
+t_num=86
+out=$(echo 1 0 0 亜 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力7(test87)
+t_num=87
+out=$(echo 1 0 0 θ 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力8(test88)
+t_num=88
+out=$(echo 1 0 0 å 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力9(test89)
+t_num=89
+out=$(echo 1 0 0 縺 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力1(test90)
+t_num=90
+out=$(echo 1 0 0 [ 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力2(test91)
+t_num=91
+out=$(echo 1 0 0 ［ 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力3(test92)
+t_num=92
+out=$(echo 1 0 0 + 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力4(test93)
+t_num=93
+out=$(echo 1 0 0 = 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test94)
+# ord('a')を入力
+t_num=94
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input24.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test95)
+# print("hoge")を入力
+t_num=95
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input25.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test96)
+t_num=96
+out=$(echo 1 0 0 mode=1 0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 何も入力しない(test97)
+t_num=97
+out=$(echo 1 0 0  0 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
 # z成分
-# 文字の入力
-# 記号の入力
-# 文字と記号と数字の混合の入力
-# 何も入力しない
+# 文字を入力1(test98)
+t_num=98
+out=$(echo 1 0 0 0 a | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力2(test99)
+t_num=99
+out=$(echo 1 0 0 0 A | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力3(test100)
+t_num=100
+out=$(echo 1 0 0 0 cd | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力4(test101)
+t_num=101
+out=$(echo 1 0 0 0 あ | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力5(test102)
+t_num=102
+out=$(echo 1 0 0 0 ｱ | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力6(test103)
+t_num=103
+out=$(echo 1 0 0 0 亜 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力7(test104)
+t_num=104
+out=$(echo 1 0 0 0 θ | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力8(test105)
+t_num=105
+out=$(echo 1 0 0 0 å | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字を入力9(test106)
+t_num=106
+out=$(echo 1 0 0 0 縺 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力1(test107)
+t_num=107
+out=$(echo 1 0 0 0 [ | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力2(test108)
+t_num=108
+out=$(echo 1 0 0 0 ［ | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力3(test109)
+t_num=109
+out=$(echo 1 0 0 0 + | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 記号を入力4(test110)
+t_num=110
+out=$(echo 1 0 0 0 = | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test111)
+# ord('a')を入力
+t_num=111
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input26.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test112)
+# print("hoge")を入力
+t_num=112
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input27.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 文字と記号と数字の混合の入力1(test113)
+t_num=113
+out=$(echo 1 0 0 0 mode=1 | python fkmanipulator/fkmanipulator)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
+# 何も入力しない(test114)
+t_num=114
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input28.txt)
+[ "$?" = 1 ] || error
+[ "${out}" = "" ] || error
+
 
 # モード4の角度の入力について
 # 文字の入力
