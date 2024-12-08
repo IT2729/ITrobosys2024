@@ -26,7 +26,7 @@ $$
 $$
 
 
-有顔ベクトルの初期値は
+有顔$ a $ベクトルの初期値は
 
 $$ \begin{bmatrix}
 ^{0}\mathrm{a} & ^{0}\mathrm{b} & ^{0}\mathrm{c}
