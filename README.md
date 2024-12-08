@@ -17,7 +17,7 @@
 のようになっている。
 
 
-先端の位置ベクトル $\mathrm{P} _ r$ は、自由度を $n$ 、基準姿勢での $i$ 番目の関節から見た $i+1$ 番目の関節の位置ベクトルを $^i\mathrm{P} _ {i+1}$ 、 $i$ 番目の関節の回転軸ベクトル $\hat{\mathrm{s}} _ {i}$ まわりの角度 $\theta _ {i}$ の回転を示す座標回転変換行列を $\mathrm{R} _ {i}$ とすると
+先端の位置ベクトル $\mathrm{P} _ r$ は、自由度を $n$ 、基準姿勢時の $i$ 番目の関節から見た $i+1$ 番目の関節の位置ベクトルを $^i\mathrm{P} _ {i+1}$ 、 $i$ 番目の関節の回転軸ベクトル $\hat{\mathrm{s}} _ {i}$ まわりの角度 $\theta _ {i}$ の回転を示す座標回転変換行列を $\mathrm{R} _ {i}$ とすると
 
 $$
 \begin{aligned}
@@ -32,7 +32,7 @@ $$
 ^0\mathrm{R} _ i = \prod_{k=1}^i \mathrm{R} _ k
 $$
 
-有顔ベクトルの初期値 $\hat{\mathrm{a}}$ , $\hat{\mathrm{b}}$ , $\hat{\mathrm{c}}$ は
+基準姿勢時の有顔ベクトル $\hat{\mathrm{a}}$ , $\hat{\mathrm{b}}$ , $\hat{\mathrm{c}}$ は
 
 $$
 \begin{bmatrix}
