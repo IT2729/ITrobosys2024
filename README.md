@@ -43,7 +43,7 @@ $$
 \end{bmatrix}
 $$
 
-となっており、変換後の有顔ベクトル $\mathrm{a}$ 、$\mathrm{b}$ 、 $\mathrm{c}$ は
+となっており、変換後の有顔ベクトル $\mathrm{a}$ 、 $\mathrm{b}$ 、 $\mathrm{c}$ は
 
 $$
 \begin{bmatrix}
