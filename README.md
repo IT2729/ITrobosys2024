@@ -20,6 +20,7 @@
 
 $i$ 番目の関節の回転軸ベクトル $\hat\mathrm{s}_{i}$ まわりの角度 $\theta_{i}$ の回転を示す座標回転変換行列を $\mathrm{R}_{i}$ とすると
 
+_あa_
 
 $$
 \begin{equation}
