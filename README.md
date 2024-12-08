@@ -26,7 +26,10 @@ $$
 \end{aligned}
 $$
 
-で導出される。
+で導出される。ただし、 $^0\mathrm{R} _ i$ は
+$$
+^0\mathrm{R} _ i = \prod_{k=1}^n \mathrm{R} _ i
+$$
 
 有顔ベクトルの初期値 $\hat{\mathrm{a}}$ , $\hat{\mathrm{b}}$ , $\hat{\mathrm{c}}$ は
 
