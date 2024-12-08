@@ -85,114 +85,7 @@ mv robosys2024/fkmanipulator/fkmanipukator <任意の移動先ディレクトリ
 ## Usage
 実行方法は以下の通り。
 
-プログラムがあるディレクトリで
 
-```
-python FKmanipulator.py
-```
-を入力する。
-
-あとは案内に従って、
-
-自由度→位置ベクトル→回転軸ベクトル→位置ベクトル→...→回転軸ベクトル
-
-→位置ベクトル→角度→グラフの表示の要否
-
-を入力するだけ。
-
-ただし(n)P(n + 1)表記は、根本からマニピュレータの間接を数えたときのn番目の間接から見たn + 1番目の間接の位置ベクトル。
-
-また0P1表記は根本(原点)からみた1番目の間接の位置ベクトルで、(n)Pr表記は最後の間接からみた先端の位置ベクトル。
-
-θ(n)表記は根本からマニピュレータの間接を数えたときのn番目の間接の回転角度で、角度はradianではなくdegreeで入力。
-
-l(n)表記は(n)P(n + 1)に座標変換行列を掛けたリンクベクトル。
-
-- 実行例
-
-<<<<<<< HEAD
-```
-=======
-```ansi
->>>>>>> main
-$ python FKmanipulator.py
-自由度を入力してください:3
-0P1のx成分を入力してください:0
-0P1のy成分を入力してください:0
-0P1のz成分を入力してください:1
-[[0.0]
- [0.0]
- [1.00000000000000]]
-θ1の回転軸ベクトルの向きをx,y,zで入力してください:z
-[[0]
- [0]
- [1]]
-1P2のx成分を入力してください:0
-1P2のy成分を入力してください:0
-1P2のz成分を入力してください:1
-[[0.0]
- [0.0]
- [1.00000000000000]]
-θ2の回転軸ベクトルの向きをx,y,zで入力してください:x
-[[1]
- [0]
- [0]]
-2P3のx成分を入力してください:0
-2P3のy成分を入力してください:0
-2P3のz成分を入力してください:1
-[[0.0]
- [0.0]
- [1.00000000000000]]
-θ3の回転軸ベクトルの向きをx,y,zで入力してください:x
-[[1]
- [0]
- [0]]
-3Prのx成分を入力してください:0
-3Prのy成分を入力してください:0
-3Prのz成分を入力してください:1
-[[0.0]
- [0.0]
- [1.00000000000000]]
-l0 =
-[[0]
- [0]
- [1.00000000000000]]
-l1 =
-[[0]
- [0]
- [1.00000000000000]]
-l2 =
-[[1.0*sin(theta1)*sin(theta2)]
- [-1.0*sin(theta2)*cos(theta1)]
- [1.0*cos(theta2)]]
-l3 =
-[[-1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*sin(theta1)]
- [1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*cos(theta1)]
- [-1.0*sin(theta2)*sin(theta3) + 1.0*cos(theta2)*cos(theta3)]]
-順運動学解は:
-[[-1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*sin(theta1) + 1.0*sin(theta1)*sin(theta2)]
- [1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*cos(theta1) - 1.0*sin(theta2)*cos(theta1)]
- [-1.0*sin(theta2)*sin(theta3) + 1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]]
-有顔ベクトルは:
-[[1.0*cos(theta1)
-  -1.0*(-sin(theta2)*sin(theta3) + cos(theta2)*cos(theta3))*sin(theta1)
-  -1.0*(-sin(theta2)*cos(theta3) - sin(theta3)*cos(theta2))*sin(theta1)]
- [1.0*sin(theta1)
-  1.0*(-sin(theta2)*sin(theta3) + cos(theta2)*cos(theta3))*cos(theta1)
-  1.0*(-sin(theta2)*cos(theta3) - sin(theta3)*cos(theta2))*cos(theta1)]
- [0 1.0*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta2)
-  -1.0*sin(theta2)*sin(theta3) + 1.0*cos(theta2)*cos(theta3)]]
-θ1の角度をdegで入力してください:30
-θ2の角度をdegで入力してください:45
-θ3の角度をdegで入力してください:90
-x =
-[0.0 0 0 0.353553390593274 0.707106781186547]
-y =
-[0.0 0 0 -0.612372435695794 -1.22474487139159]
-z =
-[0.0 1.00000000000000 2.00000000000000 2.70710678118655 2.00000000000000]
-グラフを表示しますか？[y/n]:y
-```
 <div align="center">
   <div class="the gragh ploted by the execution example">
     <img src="https://i.imgur.com/D3gs2G2.png"\>
@@ -201,7 +94,7 @@ z =
 </div>
 
 ## About GitHub Actions
-- <a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">ubuntu-latest</a>
+- <a href="https://github.com/IT2729/robosys2024/blob/main/.github/workflows/test_FKmanipulator.yml">test</a>
 <table width="800">
   <thead>
     <tr>
@@ -229,6 +122,7 @@ z =
 ## Reference
 - <a href="https://liquids.dev/articles/017df634-6a8e-47e0-b0af-6a3fb8bd5790">3Dグラフの作成【matplotlib】</a>
 - <a href="https://qiita.com/ae14watanabe/items/71f678755525d8088849">matplotlibで3次元プロットする際に3軸のスケールを揃える</a>
+- <a href="https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-6512-7.htm">広瀬茂男著，ロボット工学，裳華房</a>
 
 ## License
 
