@@ -64,7 +64,7 @@ $$
 ## Requirement
 - NumPy 2.1.3 or later
 - SymPy 1.13.3 or later
-- Matplotlib 3.9.2 or later
+- Matplotlib 3.9.2 or later(モード4で出力されるコードを実行する場合)
 
 ## Installation
 インストール方法は以下の通り。
@@ -79,7 +79,7 @@ pip install git+https://github.com/IT2729/robosys2024
 
 ```
 git clone https://github.com/IT2729/robosys2024.git
-mv robosys2024/FKmanipulator.py < 任意の移動先ディレクトリ >
+mv robosys2024/fkmanipulator/fkmanipukator <任意の移動先ディレクトリ>
 ```
 
 ## Usage
