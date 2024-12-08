@@ -15,22 +15,13 @@
 4. マニピュレータを再現したグラフを描画するプログラムのコードを出力するモード
 のようになっている。
 
+$$ a $$
+
 先端の位置ベクトル $ \mathrm{P} $ は、自由度を $ n $ 、基準姿勢での $ i $ 番目の関節から見た $ i + 1 $ 番目の関節の位置ベクトルを $ ^{i}\mathrm{P}_{i + 1} $ 、 $ i $ 番目の関節の回転軸ベクトル $ \hat\mathrm{s}_{i} $ まわりの角度 $ \theta_{i} $ の回転を示す座標回転変換行列を $ \mathrm{R}_{i} $ とすると
 
 
 $$ \mathrm{P}_{r} = ^{0}\mathrm{P}_{1} + \mathrm{R}_{1} ( ^{1}\mathrm{P}_{2} + \mathrm{R}_{2} ( ... + \mathrm{R}_{i} ( ^{i}\mathrm{P}_{i + 1} +　... \mathrm{R}_{n - 1} ( ^{n - 1}\mathrm{P}_{n} + \mathrm{R}_{n} ^{n}\mathrm{P}_{r} ) $$
 
-$$ \begin{bmatrix}
-^{0}\mathrm{a} & ^{0}\mathrm{b} & ^{0}\mathrm{c}
-\end{bmatrix} \left( = \begin{bmatrix}
-^{0}a_x & ^{0}b_x & ^{0}c_x\\
-^{0}a_y & ^{0}b_y & ^{0}c_y\\
-^{0}a_z & ^{0}b_z & ^{0}c_z\\
-\end{bmatrix} \right) = \begin{bmatrix}
-1 & 0 & 0\\
-0 & 1 & 0\\
-0 & 0 & 1
-\end{bmatrix} $$
 
 有顔ベクトルの初期値は
 
