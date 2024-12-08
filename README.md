@@ -67,8 +67,7 @@ $$
 - Matplotlib 3.9.2 or later(モード4で出力されるコードを実行する場合)
 
 ## Installation
-インストール方法は以下の通り。
-
+インストール方法は以下を入力して実行。
 ```
 git clone https://github.com/IT2729/robosys2024.git
 mv robosys2024/fkmanipulator/fkmanipulator <任意の移動先ディレクトリ>
@@ -76,6 +75,7 @@ mv robosys2024/fkmanipulator/fkmanipulator <任意の移動先ディレクトリ
 
 ## Usage
 実行方法は以下の3通り。
+
 ### Standard
 プログラムのあるディレクトリで
 
