@@ -85,7 +85,7 @@ mv robosys2024/fkmanipulator/fkmanipukator <任意の移動先ディレクトリ
 ## Usage
 実行方法は以下の3通り。
 - そのまま実行する。
-<p style"text-indent:1em;">プログラムのあるディレクトリで</p>
+プログラムのあるディレクトリで
 
 ```
 python fkmanipulator
@@ -122,7 +122,7 @@ $\theta _ {n-1}$ の値→
 $\theta _ n$ の値
 
 の順で改行または空白区切りで入力。 $\theta _ i$ についてもDescriptionを参照のこと。 $\theta _ i$ はdegreeで入力。
-</p>
+
 
 - パイプで入力を繋げて実行する。
 - リダイレクトで入力を繋げて実行する。
