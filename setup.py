@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name="FKmanipulator.py",
+    name="fkmanipulator",
     version="0.1.0",
     license="BSD-3-Clause",
     author="Itsuki Terasawa",

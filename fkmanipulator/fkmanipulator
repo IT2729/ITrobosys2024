@@ -1,0 +1,296 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2024 Itsuki Terasawa
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+import numpy as np
+import sympy as sy
+import math
+
+
+input_list = np.empty(0)  # リスト生成用空行列
+
+# 標準入力からデータを取得
+for line in sys.stdin:
+    line = line.strip()  # 改行を削除
+    if line == str(''):  # 何も入力せず改行で入力終了
+        break
+    input1 = line.split(' ')  # echoコマンドなど横並び入力用に半角スペース区切りで行列を作成
+    input_list = np.append(input_list, input1)  # 取得したデータをinput_listの末尾に入れてリスト化
+
+
+mode = int(input_list[0])  # モードを取得
+DOF = int(input_list[1])  # 自由度を取得
+if DOF < 0:
+    sys.exit("Value Error: expected a value greater than 0 in input of mode")
+element_num = 2  # リストの要素抽出用変数
+
+
+# リストから位置ベクトルと座標変換行列を生成
+# 最後の関節から見た手先までの位置ベクトル以外を生成
+for i in range(1, DOF + 1):
+    # 位置ベクトルを生成
+    vector_p_x = float(input_list[element_num])  # リストから位置ベクトルのx成分に該当する箇所を抽出
+    element_num += 1
+
+    vector_p_y = float(input_list[element_num])  # リストから位置ベクトルのy生成に該当する箇所を抽出
+    element_num += 1
+
+    vector_p_z = float(input_list[element_num])  # リストから位置ベクトルのz成分に該当する箇所を抽出
+    element_num += 1
+
+    # x,y,z成分から位置ベクトルを生成
+    exec(f"p{str(i)} = sy.Matrix(\
+            [[vector_p_x],\
+            [vector_p_y],\
+            [vector_p_z]]\
+            )"
+         )
+
+
+    # 座標変換行列を生成
+    exec(f"theta{str(i)} = sy.symbols('theta{str(i)}')")  # 関節の回転角度の変数thetaを定義
+    # 回転軸ベクトルがx方向の場合
+    if input_list[element_num] == str("x") or input_list[element_num] == str("X"):
+        exec(f"r{str(i)} = sy.Matrix(\
+                [[1, 0, 0],\
+                [0, sy.cos(theta{str(i)}), - sy.sin(theta{str(i)})],\
+                [0, sy.sin(theta{str(i)}), sy.cos(theta{str(i)})]]\
+                )"
+             )
+
+    # 回転軸ベクトルがy方向の場合
+    elif input_list[element_num] == str("y") or input_list[element_num] == str("Y"):
+        exec(f"r{str(i)} = sy.Matrix(\
+                [[sy.cos(theta{str(i)}), 0, sy.sin(theta{str(i)})],\
+                [0, 1, 0],\
+                [- sy.sin(theta{str(i)}), 0, sy.cos(theta{str(i)})]]\
+                )"
+             )
+
+    # 回転軸ベクトルがz方向の場合
+    elif input_list[element_num] == str("z") or input_list[element_num] == str("Z"):
+        exec(f"r{str(i)} = sy.Matrix(\
+                [[sy.cos(theta{str(i)}), - sy.sin(theta{str(i)}), 0],\
+                [sy.sin(theta{str(i)}), sy.cos(theta{str(i)}), 0],\
+                [0, 0, 1]]\
+                )"
+             )
+
+    else:
+        sys.exit("Value Error: expected 'x' or 'y' or 'z' in input of rotation vector")
+
+    element_num += 1
+
+
+# 最後の関節から見た手先までの位置ベクトルを生成
+vector_p_x = float(input_list[element_num])
+element_num += 1
+
+vector_p_y = float(input_list[element_num])
+element_num += 1
+
+vector_p_z = float(input_list[element_num])
+element_num += 1
+
+exec(f"p{str(DOF + 1)} = sy.Matrix(\
+        [[vector_p_x],\
+        [vector_p_y],\
+        [vector_p_z]]\
+        )"
+     )
+
+
+# 順運動学解を求める
+# マニピュレータの先端位置を求める
+r0 = np.eye(3)  # 原点から見た最初の関節の位置ベクトルに対する座標変換行列を定義
+A = sy.zeros(3, 1)  # 先端位置導出用変数
+
+for j in range(0, DOF + 1):
+    # 関節の位置ベクトルに座標変換行列を掛けリンクベクトルを導出
+    k = j
+    exec(f"B = p{str(j + 1)}")
+    while k >= 0:
+        exec(f"B = r{str(k)} * B")
+        k -= 1
+    exec(f"l{str(j)} = B")
+    
+    exec(f"A += l{str(j)}")  # それぞれのリンクベクトルを合計し先端位置を導出
+
+oPr = A
+oPr_np = sy.matrix2numpy(oPr)  # printの可読性のためsympyからnumpyに変換
+
+
+# 有顔ベクトルの初期値を定義
+a = sy.Matrix([[1], [0], [0]])
+b = sy.Matrix([[0], [1], [0]])
+c = sy.Matrix([[0], [0], [1]])
+
+# 座標変換後の有顔ベクトルを導出
+l = DOF
+while l >= 0:
+    exec(f"a = r{str(l)} * a")
+    exec(f"b = r{str(l)} * b")
+    exec(f"c = r{str(l)} * c")
+    l -= 1
+
+np_a = sy.matrix2numpy(a)
+np_b = sy.matrix2numpy(b)
+np_c = sy.matrix2numpy(c)
+
+ab = np.append(a, b, axis=1)
+abc = np.append(ab, c, axis=1)
+
+
+# モードごとの処理を選択
+# モード1の場合
+if mode == 1:
+    print(oPr_np)  # 先端位置を出力
+
+# モード2の場合
+elif mode == 2:
+    print(abc)  # 有顔ベクトルを出力
+
+# モード3の場合
+elif mode == 3:
+    # 順運動学解を出力
+    print("先端の位置ベクトルは: 0Pr =\n{}\n有顔ベクトルは: [a b c] =\n{}".format(oPr_np, abc))
+
+# モード4の場合
+elif mode == 4:
+    # グラフを描画するコードを出力
+    # 原点座標を設定
+    x = np.zeros((1, 1))
+    y = np.zeros((1, 1))
+    z = np.zeros((1, 1))
+
+    #原点からみた最初の間接までの位置ベクトルをx,y,zの行列の末尾に追加
+    l0_np = sy.matrix2numpy(l0)
+    ol0 = l0_np
+    
+    x = np.append(x, l0[0])
+    y = np.append(y, l0[1])
+    z = np.append(z, l0[2])
+
+    # 角度を設定し代入
+    for m in range(1, DOF + 1):
+        # 角度を設定
+        deg = float(input_list[element_num])
+        element_num += 1
+        exec(f"rad{str(m)} = np.pi / 180.0 * deg")  # degからradに変換
+        
+        # 原点からみた間接の位置ベクトルに角度を代入し、x,y,zの末尾に追
+        n = m
+        while n > 0:
+            exec(f"l{str(m)} = l{str(m)}.subs(theta{str(n)}, rad{str(n)})")
+            n -= 1
+        exec(f"l{str(m)}_np = sy.matrix2numpy(l{str(m)})")
+        p = m
+        exec(f"ol{str(m)} = np.zeros((3, 1))")
+        while p >= 0:
+            exec(f"ol{str(m)} = ol{str(m)} + l{str(p)}_np")
+            p -= 1
+
+        exec(f"x = np.append(x, ol{str(m)}[0])")
+        exec(f"y = np.append(y, ol{str(m)}[1])")
+        exec(f"z = np.append(z, ol{str(m)}[2])")
+
+    # コード生成のために行列を文字列化
+    x_str = np.array2string(x, separator=', ')
+    y_str = np.array2string(y, separator=', ')
+    z_str = np.array2string(z, separator=', ')
+
+    #有顔ベクトルに角度を代入
+    for q in range( 1, DOF + 1):
+        exec(f"a = a.subs(theta{str(q)}, rad{str(q)})")
+        exec(f"b = b.subs(theta{str(q)}, rad{str(q)})")
+        exec(f"c = c.subs(theta{str(q)}, rad{str(q)})")
+        
+    exec(f"a_position = np.append(ol{str(DOF)}, a + ol{str(DOF)}, axis=1)")
+    exec(f"b_position = np.append(ol{str(DOF)}, b + ol{str(DOF)}, axis=1)")
+    exec(f"c_position = np.append(ol{str(DOF)}, c + ol{str(DOF)}, axis=1)")
+        
+    a_x = a_position[0]
+    a_y = a_position[1]
+    a_z = a_position[2]
+    b_x = b_position[0]
+    b_y = b_position[1]
+    b_z = b_position[2]
+    c_x = c_position[0]
+    c_y = c_position[1]
+    c_z = c_position[2]
+
+    a_x_str = np.array2string(a_x, separator=', ')
+    a_y_str = np.array2string(a_y, separator=', ')
+    a_z_str = np.array2string(a_z, separator=', ')
+    b_x_str = np.array2string(b_x, separator=', ')
+    b_y_str = np.array2string(b_y, separator=', ')
+    b_z_str = np.array2string(b_z, separator=', ')
+    c_x_str = np.array2string(c_x, separator=', ')
+    c_y_str = np.array2string(c_y, separator=', ')
+    c_z_str = np.array2string(c_z, separator=', ')
+
+    # グラフを描画するコードを生成
+    program = "#!/usr/bin/python3\n\
+import numpy as np\n\
+import matplotlib.pyplot as plt\n\n\n\
+# マニピュレータ再現折れ線グラフの座標\n\
+x = " + str(x_str) + "\n\
+y = " + str(y_str) + "\n\
+z = " + str(z_str) + "\n\
+# 有顔ベクトルの根本と先端の座標\n\
+a_x = " + str(a_x_str) + "\n\
+a_y = " + str(a_y_str) + "\n\
+a_z = " + str(a_z_str) + "\n\
+b_x = " + str(b_x_str) + "\n\
+b_y = " + str(b_y_str) + "\n\
+b_z = " + str(b_z_str) + "\n\
+c_x = " + str(c_x_str) + "\n\
+c_y = " + str(c_y_str) + "\n\
+c_z = " + str(c_z_str) + "\n\n\n\
+# グラフの表示範囲を決定\n\
+# xとyの表示範囲\n\
+Max_mat = [max(x), max(y), max(z)]\n\
+Max_num = max(Max_mat)\n\
+Min_mat = [min(x), min(y), min(z)]\n\
+Min_num = min(Min_mat)\n\
+Max = np.float16(round(Max_num + 1, 1))\n\
+Min = np.float16(round(Min_num - 1, 1))\n\
+if abs(Max) > abs(Min):\n\
+    Range = abs(Max)\n\
+elif abs(Min) > abs(Max):\n\
+    Range = abs(Min)\n\
+else:\n\
+    Range = abs(Max)\n\n\
+# zの表示範囲\n\
+z_Max = np.float16(round(max(z)))\n\
+z_Min = np.float16(round(min(z)))\n\n\
+# 座標軸表示用\n\
+x_axis = np.array([[- Range, Range], [0, 0], [0, 0]])\n\
+y_axis = np.array([[0, 0], [- Range, Range], [0, 0]])\n\
+z_axis = np.array([[0, 0], [0, 0], [- 2 * Range, 2 * Range]])\n\n\
+# グラフ表示についての設定\n\
+fig = plt.figure()\n\
+ax = fig.add_subplot(projection='3d')\n\n\
+ax.set_ylim(- Range, Range)\n\
+ax.set_xlim(- Range, Range)\n\
+if abs(z_Max) > abs(z_Min):\n\
+    ax.set_zlim(z_Min, z_Min + 2 * Range)\n\
+elif abs(z_Min) > abs(z_Max):\n\
+    ax.set_zlim(z_Max - 2 * Range, z_Max)\n\
+else:\n\
+    ax.set_zlim(z_Min, z_Min + 2 * Range)\n\n\
+# 描画するグラフの設定\n\
+ax.plot(x_axis[0], x_axis[1], x_axis[2], label='x', color='#8b0000')\n\
+ax.plot(y_axis[0], y_axis[1], y_axis[2], label='y', color='#006400')\n\
+ax.plot(z_axis[0], z_axis[1], z_axis[2], label='z', color='#00008b')\n\
+ax.plot(x, y, z, marker='o', markersize=3, color='#b8860b')\n\
+ax.plot(a_x, a_y, a_z, color='red')\n\
+ax.plot(b_x, b_y, b_z, color='green')\n\
+ax.plot(c_x, c_y, c_z, color='blue')\n\n\
+ax.set_box_aspect((1, 1, 1))\n\
+ax.legend()\n\n\
+plt.show()"
+    
+    # コードを出力
+    print(program)
