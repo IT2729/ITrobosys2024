@@ -27,6 +27,7 @@ $$
 $$
 
 で導出される。ただし、 $^0\mathrm{R} _ i$ は
+
 $$
 ^0\mathrm{R} _ i = \prod_{k=1}^n \mathrm{R} _ i
 $$
