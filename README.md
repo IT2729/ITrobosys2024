@@ -48,10 +48,12 @@ $$
 $$
 \begin{bmatrix}
 \mathrm{a} & \mathrm{b} $ \mathrm{c}
-\end{bmatrix} = ^0\mathrm{R} _ n \ \begin{bmatrix}
+\end{bmatrix} = \ ^0\mathrm{R} _ n \ \begin{bmatrix}
 \hat{\mathrm{a}} & \hat{\mathrm{b}} & \hat{\mathrm{c}}
 \end{bmatrix}
 $$
+
+で導出される。
 
 
 ## Requirement
