@@ -1872,14 +1872,14 @@ out=$(echo 4 1 0 0 0 x 1 0 0 = | python fkmanipulator/fkmanipulator)
 # 文字と記号と数字の混合の入力1(test201)
 # ord('a')を入力
 t_num=201
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input33.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input36.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
 # 文字と記号と数字の混合の入力2(test202)
 # print("hoge")を入力
 t_num=202
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input34.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input37.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1891,7 +1891,7 @@ out=$(echo 4 1 0 0 0 x 1 0 0 mode=1 | python fkmanipulator/fkmanipulator)
 
 # 何も入力しない(test204)
 t_num=204
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input35.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input38.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
