@@ -1,16 +1,25 @@
 # robosys2024
 ロボットシステム学の講義用に製作
 
-# FKmanipulator.py
+# fkmanipulator
 <a href="https://github.com/IT2729/robosys2024/actions/workflows/test_FKmanipulator.yml"><img src="https://github.com/IT2729/robosys2024/actions/workflows/test_FKmanipulator.yml/badge.svg" alt="Test status on ubuntu-latest"></a>
 <a href="https://github.com/IT2729/robosys2024/tree/main?tab=BSD-3-Clause-1-ov-file"><img alt="GitHub License" src="https://img.shields.io/github/license/IT2729/robosys2024"></a>
 
-<img src="https://i.imgur.com/pV2jqEq.png" alt="the ploted graph">
-
 ## Description
-入力からマニピュレータの順運動学解を導き、角度を入力後マニピュレータっぽくグラフを描画するプログラム。
+標準入力からマニピュレータの先端の順運動学解を導出して標準出力したり、関節位置からマニピュレータを再現したグラフを描画するプログラムのコードを標準出力したりできるプログラム。
 
-上図の黄色線がマニピュレータの再現部分。先端の赤,緑,青線は有顔ベクトルでそれぞれ $\mathrm{a}$ , $\mathrm{b}$ , $\mathrm{c}$ とすると初期値は
+このプログラムにはモードが4つあり、それぞれ
+1. マニピュレータ先端の位置ベクトルを出力するモード
+2. マニピュレータ先端に取り付けられた有顔ベクトル(マニピュレータの先端姿勢)を出力するモード
+3. 順運動学解(マニピュレータの先端位置ベクトルと有顔ベクトル)を出力するモード
+4. マニピュレータを再現したグラフを描画するプログラムのコードを出力するモード
+のようになっている。
+
+先端の位置ベクトル$$ \mathrm{P}_{r} $$は、自由度を$$ n $$、基準姿勢での$$ i $$番目の関節から見た$$ i + 1 $$番目の関節の位置ベクトルを$$ ^{i}\mathrm{P}_{i + 1} $$、$$ i $$番目の関節の回転軸ベクトル$$ \hat\mathrm{s}_{i} $$まわりの角度$$ \theta_{i} $$の回転を示す座標回転変換行列を$$ \mathrm{R}_{i} $$とすると
+
+$$ \mathrm{P}_{r} = ^{0}\mathrm{P}_{1} + \mathrm{R}_{1} ( ^{1}\mathrm{P}_{2} + \mathrm{R}_{2} (… + \mathrm{R}_{i} ( ^{i}\mathrm{P}_{i + 1} +　… \mathrm{R}_{n - 1} ( ^{n - 1}\mathrm{P}_{n} + \mathrm{R}_{n} ^{n}\mathrm{P}_{r} )
+
+有顔ベクトルの初期値は
 
 $$ \begin{bmatrix}
 ^{0}\mathrm{a} & ^{0}\mathrm{b} & ^{0}\mathrm{c}
@@ -23,6 +32,7 @@ $$ \begin{bmatrix}
 0 & 1 & 0\\
 0 & 0 & 1
 \end{bmatrix} $$
+
 
 ## Requirement
 - NumPy 2.1.3 or later
