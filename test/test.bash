@@ -221,14 +221,14 @@ plt.show()" ] || error
 # txtファイルからモード番号+3 0 1 0 Y 0 1 0 Z 0 1 0 X 0 1 0 (390 405 450)を横並びで入力
 # モード1(test5)
 t_num=5
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input1.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input01.txt)
 [ "${out}" = "[[1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
  [1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]]" ] || error
 
 # モード2(test6)
 t_num=6
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input2.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input02.txt)
 [ "${out}" = "[[1.0*cos(theta1)*cos(theta2)
   1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3)
   1.0*sin(theta1)*cos(theta3) + 1.0*sin(theta2)*sin(theta3)*cos(theta1)]
@@ -240,7 +240,7 @@ out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input2.txt)
 
 # モード3(test7)
 t_num=7
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input3.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input03.txt)
 [ "${out}" = "順運動学解は: 0Pr =
 [[1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
@@ -257,7 +257,7 @@ out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input3.txt)
 
 # モード4(test8)
 t_num=8
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input4.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input04.txt)
 [ "$out" = "#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
@@ -336,14 +336,14 @@ plt.show()" ] || error
 # txtファイルからモード番号+3 0 0 1 z 0 0 1 x 0 0 1 y 0 0 1 (30 45 90)を縦並びで入力
 # モード1(test9)
 t_num=9
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input5.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input05.txt)
 [ "${out}" = "[[1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
  [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
  [1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]]" ] || error
 
 # モード2(test10)
 t_num=10
-out=$( python fkmanipulator/fkmanipulator < test/test_input_text/test_input6.txt)
+out=$( python fkmanipulator/fkmanipulator < test/test_input_text/test_input06.txt)
 [ "${out}" = "[[-1.0*sin(theta1)*sin(theta2)*sin(theta3) + 1.0*cos(theta1)*cos(theta3)
   -1.0*sin(theta1)*cos(theta2)
   1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta3)*cos(theta1)]
@@ -355,7 +355,7 @@ out=$( python fkmanipulator/fkmanipulator < test/test_input_text/test_input6.txt
 
 # モード3(test11)
 t_num=11
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input7.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input07.txt)
 [ "${out}" = "順運動学解は: 0Pr =
 [[1.0*sin(theta1)*sin(theta2)*cos(theta3) + 1.0*sin(theta1)*sin(theta2) + 1.0*sin(theta3)*cos(theta1)]
  [1.0*sin(theta1)*sin(theta3) - 1.0*sin(theta2)*cos(theta1)*cos(theta3) - 1.0*sin(theta2)*cos(theta1)]
@@ -372,7 +372,7 @@ out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input7.txt)
 
 # モード4(test12)
 t_num=12
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input8.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input08.txt)
 [ "$out" = "#!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
@@ -884,7 +884,7 @@ out=$(echo = 0 1 0 0 | python fkmanipulator/fkmanipulator)
 # 文字と記号と数字の混合の入力1(test42)
 # ord('a')を入力
 t_num=42
-out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input9.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input09.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
@@ -1446,7 +1446,7 @@ out=$(echo 1 0 mode=1 0 0 | python fkmanipulator/fkmanipulator)
 
 # 何も入力しない(test80)
 t_num=80
-out=$(python fkmanipulator/fkmanipulator | test/test_input_text/test_input29.txt)
+out=$(python fkmanipulator/fkmanipulator < test/test_input_text/test_input29.txt)
 [ "$?" = 1 ] || error
 [ "${out}" = "" ] || error
 
