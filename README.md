@@ -99,7 +99,7 @@ python fkmanipulator
 $^0\mathrm{P} _ 1$ の $x$ 成分の値→ 
 $^0\mathrm{P} _ 1$ の $y$ 成分の値→ 
 $^0\mathrm{P} _ 1$ の $z$ 成分の値→ 
-$\hat{\mathrm{s}} _ 1$ の方向の値→  
+$\hat{\mathrm{s}} _ 1$ の方向→  
 $^1\mathrm{P} _ 2$ の $x$ 成分の値→ 
 $^1\mathrm{P} _ 2$ の $y$ 成分の値→ 
 $^1\mathrm{P} _ 2$ の $z$ 成分の値→ 
