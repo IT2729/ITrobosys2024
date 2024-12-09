@@ -211,7 +211,7 @@ $ python fkmanipulator < sample2.txt
 <div align="center">
   <div class="input data of usage example 3">
     <img src="https://i.imgur.com/Y9zBO3k.png"\>
-    <p>Usage Example 2で入力に使用したtxtファイルの内容</p>
+    <p>Usage Example 3で入力に使用したtxtファイルの内容</p>
   </div>
 </div>
 
