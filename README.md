@@ -17,7 +17,7 @@
 のようになっている。
 
 
-先端の位置ベクトル $\mathrm{P} _ r$ は、自由度を $n$ 、基準姿勢時の $i$ 番目の関節から見た $i+1$ 番目の関節の位置ベクトルを $^i\mathrm{P} _ {i+1}$ 、 $i$ 番目の関節の回転軸ベクトル $\hat{\mathrm{s}} _ {i}$ まわりの角度 $\theta _ {i}$ の回転を示す座標回転変換行列を $\mathrm{R} _ {i}$ とすると
+先端の位置ベクトル $\mathrm{P} _ r$ は、自由度を $n$ 、基準姿勢時の $i$ 番目の関節から見た $i+1$ 番目の関節の位置ベクトルを $^i\mathrm{P} _ {i+1}$ 、 $i$ 番目の関節の回転軸ベクトル $\hat{\mathrm{s}} _ {i}$ まわりの角度 $\theta _ {i}$ の回転を示す座標変換行列を $\mathrm{R} _ {i}$ とすると
 
 $$
 \begin{aligned}
@@ -104,7 +104,7 @@ $^n\mathrm{P} _ r$ の $x$ 成分の値→
 $^n\mathrm{P} _ r$ の $y$ 成分の値→ 
 $^n\mathrm{P} _ r$ の $z$ 成分の値
 
-の順で改行または空白区切りで入力。 $^i\mathrm{P} _ {i+1}$ と $\hat{\mathrm{s} _ i}$ についての定義とモード番号についてはDescriptionを参照のこと。 $\hat{\mathrm{s}} _ i$ の方向は $x$ 軸方向まわりの回転なら"x"、 $y$ 軸方向まわりの回転なら"y" 、 $z$ 軸まわりの回転なら"z"を入力。モード番号はコンマなしで入力。何も入力せず改行で入力を終了できる。
+の順で改行または空白区切りで入力。 $^i\mathrm{P} _ {i+1}$ と $\hat{\mathrm{s} _ i}$ についての定義とモード番号についてはDescriptionを参照のこと。 $\hat{\mathrm{s}} _ i$ の方向は $x$ 軸方向まわりの回転なら"x"、 $y$ 軸方向まわりの回転なら"y" 、 $z$ 軸まわりの回転なら"z"を入力。モード番号はドットなしで入力。何も入力せず改行で入力を終了できる。
 
 出力結果のtheta( i )は $\theta _ i$ で、 $\theta _ i$ についての定義もDescriptionを参照のこと。
 
@@ -186,7 +186,7 @@ $ python fkmanipulator < sample1.txt
 <div align="center">
   <div class="input data of usage example 2">
     <img src="https://i.imgur.com/xFstTM3.png"\>
-    <p>Usage Example 2で入力したtxtファイルの内容</p>
+    <p>Usage Example 2で入力に使用したtxtファイルの内容</p>
   </div>
 </div>
 
@@ -211,7 +211,7 @@ $ python fkmanipulator < sample2.txt
 <div align="center">
   <div class="input data of usage example 3">
     <img src="https://i.imgur.com/Y9zBO3k.png"\>
-    <p>Usage Example 2で入力したtxtファイルの内容</p>
+    <p>Usage Example 2で入力に使用したtxtファイルの内容</p>
   </div>
 </div>
 
