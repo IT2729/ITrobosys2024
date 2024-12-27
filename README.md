@@ -6,7 +6,7 @@
 <a href="https://github.com/IT2729/robosys2024/tree/main?tab=BSD-3-Clause-1-ov-file"><img alt="GitHub License" src="https://img.shields.io/github/license/IT2729/robosys2024"></a>
 
 ## Description
-標準入力からマニピュレータの先端の順運動学解を導出して標準出力したり、関節位置からマニピュレータを再現したグラフを描画するプログラムのコードを標準出力したりできるプログラム。
+標準入力からマニピュレータの先端の順運動学解を導出して出力したり、関節位置からマニピュレータを再現したグラフを描画するプログラムのコードを出力したりできるプログラム。
 
 このプログラムにはモードが4つあり、それぞれ
 1. マニピュレータ先端の位置ベクトルを出力するモード
@@ -70,7 +70,8 @@ $$
 インストール方法は以下を入力して実行。
 ```
 git clone https://github.com/IT2729/robosys2024.git
-mv robosys2024/fkmanipulator/fkmanipulator <任意の移動先ディレクトリ>
+mv robosys2024/fkmanipulator/fkmanipulator .
+chmod +x fkmanipulator
 ```
 
 ## Usage
@@ -80,7 +81,7 @@ mv robosys2024/fkmanipulator/fkmanipulator <任意の移動先ディレクトリ
 プログラムのあるディレクトリで
 
 ```
-python fkmanipulator
+./fkmanipulator
 ```
 
 を入力して実行。
@@ -129,7 +130,7 @@ python <貼り付けたor出力先のファイル名>.py
 txtファイルなどからリダイレクトで入力。
 
 ```
-python fkmanipulator < <任意のファイル名>.txt
+./fkmanipulator < <任意のファイル名>.txt
 ```
 
 入力する順番はStandardと同じ。ファイルの中身は改行区切り(縦並び)でも空白区切り(横並び)でも可。
@@ -138,7 +139,7 @@ python fkmanipulator < <任意のファイル名>.txt
 echoコマンドなどの出力をパイプで繋げて実行。
 
 ```
-echo <任意の入力データ> | python fkmanipulator
+echo <任意の入力データ> | ./fkmanipulator
 ```
 
 入力する順番はStandardと同じ。
@@ -146,7 +147,7 @@ echo <任意の入力データ> | python fkmanipulator
 
 - Usage Example 1 (Standard: モード1)
 ```
-$ python fkmanipulator
+$ ./fkmanipulator
 1
 3
 1
@@ -172,7 +173,7 @@ z
 
 - Usage Example 2 (With Redirecting: モード2)
 ```
-$ python fkmanipulator < sample1.txt
+$ ./fkmanipulator < sample1.txt
 [[-1.0*sin(theta1)*sin(theta3) + 1.0*cos(theta1)*cos(theta2)*cos(theta3)
   -1.0*sin(theta1)*cos(theta3) - 1.0*sin(theta3)*cos(theta1)*cos(theta2)
   1.0*sin(theta2)*cos(theta1)]
@@ -192,7 +193,7 @@ $ python fkmanipulator < sample1.txt
 
 - Usage Example 3 (With Redirecting: モード3)
 ```
-$ python fkmanipulator < sample2.txt
+$ ./fkmanipulator < sample2.txt
 先端の位置ベクトルは: 0Pr =
 [[1.0*(-1.0*sin(theta2)*cos(theta3) - 1.0*sin(theta3)*cos(theta2))*cos(theta1) - 1.0*sin(theta2)*cos(theta1)]
  [-1.0*sin(theta2)*sin(theta3) + 1.0*cos(theta2)*cos(theta3) + 1.0*cos(theta2) + 2.0]
@@ -217,7 +218,7 @@ $ python fkmanipulator < sample2.txt
 
 - Usage Example 4 (With Piping: モード4)
 ```
-$ echo 4 6 0 0 1 z 0 0 1 x 0 0 1 x 0 0 1 z 0 0 1 x 0 0 1 z 0 0 1 30 60 45 120 90 135 | python fkmanipulator
+$ echo 4 6 0 0 1 z 0 0 1 x 0 0 1 x 0 0 1 z 0 0 1 x 0 0 1 z 0 0 1 30 60 45 120 90 135 | ./fkmanipulator
 #!/usr/bin/python3
 import numpy as np
 import matplotlib.pyplot as plt
